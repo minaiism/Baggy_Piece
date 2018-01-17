@@ -12,23 +12,11 @@ app.set("view engine", "ejs");
 //SCHEMA SETUP
 let artistSchema = new mongoose.Schema({
   name: String,
-  image: String
+  image: String,
+  description: String
 });
 
 let Artist = mongoose.model("Artist", artistSchema);
-
-// Artist.create({
-//   name: "Lana",
-//   image: "http://lanadelrey.com/wp-content/themes/lanadelrey/assets/splash_lustforlife/images/photo2.jpg?v=1"
-// }, function(err, artist) {
-//   if (err) {
-//     console.log("Something went wrong!");
-//     console.log(err);
-//   } else {
-//     console.log("Newly created artist");
-//     console.log(artist);
-//   }
-// });
 
 //LANDING PAGE
 app.get("/", function(req, res) {
@@ -41,7 +29,7 @@ app.get("/artists", function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render("artists", {
+      res.render("index", {
         artists: allArtists
       });
     }
@@ -51,9 +39,11 @@ app.get("/artists", function(req, res) {
 app.post("/artists", function(req, res) {
   let name = req.body.name;
   let image = req.body.image;
+  let description = req.body.description;
   let newArtist = {
     name: name,
-    image: image
+    image: image,
+    description: description
   };
   Artist.create(newArtist, function(err, newlyCreated) {
     if (err) {
@@ -69,7 +59,18 @@ app.get("/artists/new", function(req, res) {
   res.render("new");
 });
 
-
+//SHOW ROUTE
+app.get("/artists/:id", function(req, res) {
+  Artist.findById(req.params.id, function(err, foundArtist) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("show", {
+        artist: foundArtist
+      });
+    }
+  });
+});
 
 app.listen(8666, process.env.IP, function() {
   console.log("Server is running");
