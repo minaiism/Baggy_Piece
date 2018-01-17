@@ -1,9 +1,14 @@
 let express = require("express");
 
 let app = express();
+app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  res.send("This will be my landing page soon");
+  res.render("landing");
+});
+
+app.get("/artists", function(req, res) {
+  res.render("artists");
 });
 
 app.listen(8666, process.env.IP, function() {
