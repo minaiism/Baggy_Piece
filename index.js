@@ -1,25 +1,34 @@
-let express = require("express");
-let app = express();
-let bodyParser = require("body-parser");
+let express = require("express"),
+  app = express(),
+  bodyParser = require("body-parser"),
+  mongoose = require("mongoose");
 
+mongoose.connect("mongodb://localhost/baggypiece");
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.set("view engine", "ejs");
 
-let artists = [{
-    name: "Lana del Rey",
-    image: "http://lanadelrey.com/wp-content/themes/lanadelrey/assets/splash_lustforlife/images/photo2.jpg?v=1"
-  },
-  {
-    name: "Kali Uchis",
-    image: "http://www.latina.com/sites/default/files/articles/2017-01-20/Kali-Uchis-Promo.jpg"
-  },
-  {
-    name: "Julia Pietrucha",
-    image: "https://4.bp.blogspot.com/-ckGJ9l3_SMs/V8mHo274zCI/AAAAAAAAAug/PHXqwrtP8pkm2CUQ9FXz4XSOED7c0uJqACEw/s1600/julia%2Bpietrucha%2Bukulele.jpg"
-  }
-];
+//SCHEMA SETUP
+let artistSchema = new mongoose.Schema({
+  name: String,
+  image: String
+});
+
+let Artist = mongoose.model("Artist", artistSchema);
+
+// Artist.create({
+//   name: "Lana",
+//   image: "http://lanadelrey.com/wp-content/themes/lanadelrey/assets/splash_lustforlife/images/photo2.jpg?v=1"
+// }, function(err, artist) {
+//   if (err) {
+//     console.log("Something went wrong!");
+//     console.log(err);
+//   } else {
+//     console.log("Newly created artist");
+//     console.log(artist);
+//   }
+// });
 
 //LANDING PAGE
 app.get("/", function(req, res) {
@@ -28,8 +37,14 @@ app.get("/", function(req, res) {
 
 //INDEX ROUTE
 app.get("/artists", function(req, res) {
-  res.render("index", {
-    artists: artists
+  Artist.find({}, function(err, allArtists) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("artists", {
+        artists: allArtists
+      });
+    }
   });
 });
 
@@ -40,8 +55,13 @@ app.post("/artists", function(req, res) {
     name: name,
     image: image
   };
-  artists.push(newArtist);
-  res.redirect("/artists");
+  Artist.create(newArtist, function(err, newlyCreated) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/artists");
+    }
+  });
 });
 
 //NEW ROUTE
@@ -54,3 +74,5 @@ app.get("/artists/new", function(req, res) {
 app.listen(8666, process.env.IP, function() {
   console.log("Server is running");
 });
+
+// mongod --dbpath d:\mongodb\data
