@@ -1,9 +1,15 @@
 <% include partials/header %>
 
-  <h1>Landing Page</h1>
-
-  <p>Welcome to BaggyPiece</p>
-
-  <a href="/artists">View All Artists List</a>
+  <div class="container">
+    <header class="jumbotron">
+      <div class="container">
+        <h1>Welcome to BaggyPiece</h1>
+        <a href="/artists">View all artists</a>
+        <p>
+          <a class="btn btn-primary btn-lg" href="/artists/new">Add a New Artist</a>
+        </p>
+      </div>
+    </header>
+  </div>
 
   <% include partials/footer %>
