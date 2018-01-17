@@ -28,7 +28,7 @@ app.get("/", function(req, res) {
 
 //INDEX ROUTE
 app.get("/artists", function(req, res) {
-  res.render("artists", {
+  res.render("index", {
     artists: artists
   });
 });
