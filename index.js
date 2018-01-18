@@ -1,22 +1,18 @@
 let express = require("express"),
   app = express(),
   bodyParser = require("body-parser"),
-  mongoose = require("mongoose");
+  mongoose = require("mongoose"),
+  Artist = require("./models/artist"),
+  Comment = require("./models/comment"),
+  seedDB = require("./seeds");
+
 
 mongoose.connect("mongodb://localhost/baggypiece");
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.set("view engine", "ejs");
-
-//SCHEMA SETUP
-let artistSchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  description: String
-});
-
-let Artist = mongoose.model("Artist", artistSchema);
+seedDB();
 
 //LANDING PAGE
 app.get("/", function(req, res) {
@@ -29,13 +25,14 @@ app.get("/artists", function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render("index", {
+      res.render("artists/index", {
         artists: allArtists
       });
     }
   });
 });
 
+//CREATE - add new artist to DB
 app.post("/artists", function(req, res) {
   let name = req.body.name;
   let image = req.body.image;
@@ -56,17 +53,51 @@ app.post("/artists", function(req, res) {
 
 //NEW ROUTE
 app.get("/artists/new", function(req, res) {
-  res.render("new");
+  res.render("artists/new");
 });
 
 //SHOW ROUTE
 app.get("/artists/:id", function(req, res) {
-  Artist.findById(req.params.id, function(err, foundArtist) {
+  Artist.findById(req.params.id).populate("comments").exec(function(err, foundArtist) {
     if (err) {
       console.log(err);
     } else {
-      res.render("show", {
+      console.log(foundArtist);
+      res.render("artists/show", {
         artist: foundArtist
+      });
+    }
+  });
+});
+
+//COMMENTS ROUTES
+
+app.get("/artists/:id/comments/new", function(req, res) {
+  Artist.findById(req.params.id, function(err, artist) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("comments/new", {
+        artist: artist
+      });
+    }
+  });
+});
+
+app.post("/artists/:id/comments", function(req, res) {
+  Artist.findById(req.params.id, function(err, artist) {
+    if (err) {
+      console.log(err);
+      res.redirect("/artists");
+    } else {
+      Comment.create(req.body.comment, function(err, comment) {
+        if (err) {
+          console.log(err);
+        } else {
+          artist.comments.push(comment);
+          artist.save();
+          res.redirect('/artists/' + artist._id);
+        }
       });
     }
   });

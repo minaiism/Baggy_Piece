@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+  <p>
+    <%= artist.name %>
+  </p>
+  <img src="<%= artist.image %>">
+  <p>
+    <%= artist.description %>
+  </p>
+
+  <% artist.comments.forEach(function(comment){ %>
+    <p>
+      <strong><%= comment.author %></strong>-
+      <%= comment.text %>
+    </p>
+    <%  }); %>
+
+      <% include ../partials/footer %>
