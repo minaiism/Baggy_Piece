@@ -2,17 +2,33 @@ let express = require("express"),
   app = express(),
   bodyParser = require("body-parser"),
   mongoose = require("mongoose"),
+  passport = require("passport"),
+  LocalStrategy = require("passport-local").Strategy,
   Artist = require("./models/artist"),
   Comment = require("./models/comment"),
+  User = require("./models/user"),
   seedDB = require("./seeds");
 
-
+//REQUIRING ROUTES
 mongoose.connect("mongodb://localhost/baggypiece");
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 seedDB();
+
+//PASSPORT CONFIGURATION
+app.use(require("express-session")({
+  secret: "BaggyPiece is almost done",
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 //LANDING PAGE
 app.get("/", function(req, res) {
@@ -72,7 +88,7 @@ app.get("/artists/:id", function(req, res) {
 
 //COMMENTS ROUTES
 
-app.get("/artists/:id/comments/new", function(req, res) {
+app.get("/artists/:id/comments/new", isLoggedIn, function(req, res) {
   Artist.findById(req.params.id, function(err, artist) {
     if (err) {
       console.log(err);
@@ -102,6 +118,54 @@ app.post("/artists/:id/comments", function(req, res) {
     }
   });
 });
+
+//AUTH ROUTES
+
+//show register form
+app.get("/register", function(req, res) {
+  res.render("register");
+});
+
+//handle sign up logic
+app.post("/register", function(req, res) {
+  let newUser = new User({
+    username: req.body.username
+  });
+  User.register(newUser, req.body.password, function(err, user) {
+    if (err) {
+      console.log(err);
+      return res.render("register");
+    } else {
+      passport.authenticate("local")(req, res, function() {
+        res.redirect("/artists");
+      });
+    }
+  });
+});
+
+// show login form
+app.get("/login", function(req, res) {
+  res.render("login");
+});
+// handling login logic
+app.post("/login", passport.authenticate("local", {
+  successRedirect: "/artists",
+  failureRedirect: "/login"
+}), function(req, res) {});
+
+// logic route
+app.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/artists");
+});
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login");
+}
+
 
 app.listen(8666, process.env.IP, function() {
   console.log("Server is running");
