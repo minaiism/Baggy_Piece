@@ -53,4 +53,26 @@ router.get("/:id", function(req, res) {
   });
 });
 
+//EDIT ROUTE
+
+router.get("/:id/edit", function(req, res) {
+  Artist.findById(req.params.id, function(err, foundArtist) {
+    res.render("artists/edit", {
+      artist: foundArtist
+    });
+  });
+});
+
+
+//UPDATE ROUTE
+router.put("/:id", function(req, res) {
+  Artist.findByIdAndUpdate(req.params.id, req.body.artist, function(err, updatedArtist) {
+    if (err) {
+      res.redirect("/artists");
+    } else {
+      res.redirect("/artists/" + req.params.id);
+    }
+  });
+});
+
 module.exports = router;

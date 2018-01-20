@@ -4,11 +4,12 @@ let express = require("express"),
   mongoose = require("mongoose"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
+  methodOverride = require("method-override"),
   Artist = require("./models/artist"),
   Comment = require("./models/comment"),
   User = require("./models/user"),
-  seedDB = require("./seeds"),
-  methodOverride = require("method-override");
+  seedDB = require("./seeds");
+
 
 //REQUIRING ROUTES
 

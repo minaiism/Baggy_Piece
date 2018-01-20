@@ -17,8 +17,9 @@
             <h4 class="pull-right">10/10</h4>
             <h4><a><%= artist.name %></a></h4>
             <p>
-              <%=artist.description %>
+              <%= artist.description %>
             </p>
+            <a class="btn btn-warning" href="/artists/<%= artist._id %>/edit">Edit</a>
           </div>
         </div>
         <div class="text-right">
@@ -32,6 +33,7 @@
               <span class="pull-right">10 days ago</span>
               <%= comment.text %>
                 </p>
+
             </div>
           </div>
           <%  }); %>
