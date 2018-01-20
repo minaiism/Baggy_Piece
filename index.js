@@ -7,7 +7,8 @@ let express = require("express"),
   Artist = require("./models/artist"),
   Comment = require("./models/comment"),
   User = require("./models/user"),
-  seedDB = require("./seeds");
+  seedDB = require("./seeds"),
+  methodOverride = require("method-override");
 
 //REQUIRING ROUTES
 
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 seedDB();
+app.use(methodOverride("_method"));
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
