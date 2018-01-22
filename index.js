@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
-seedDB();
+// seedDB(); //seed the DB
 app.use(methodOverride("_method"));
 
 //PASSPORT CONFIGURATION
@@ -52,4 +52,4 @@ app.listen(8666, process.env.IP, function() {
   console.log("Server is running");
 });
 
-// mongod --dbpath d:\mongodb\data
+// mongod --dbpath e:\dev\mongo

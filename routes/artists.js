@@ -16,14 +16,19 @@ router.get("/", function(req, res) {
 });
 
 //CREATE - add new artist to DB
-router.post("/", function(req, res) {
+router.post("/", isLoggedIn, function(req, res) {
   let name = req.body.name;
   let image = req.body.image;
   let description = req.body.description;
+  let author = {
+    id: req.user._id,
+    username: req.user.username
+  };
   let newArtist = {
     name: name,
     image: image,
-    description: description
+    description: description,
+    author: author
   };
   Artist.create(newArtist, function(err, newlyCreated) {
     if (err) {
@@ -35,7 +40,7 @@ router.post("/", function(req, res) {
 });
 
 //NEW ROUTE
-router.get("/new", function(req, res) {
+router.get("/new", isLoggedIn, function(req, res) {
   res.render("artists/new");
 });
 
@@ -55,14 +60,28 @@ router.get("/:id", function(req, res) {
 
 //EDIT ROUTE
 
-router.get("/:id/edit", function(req, res) {
-  Artist.findById(req.params.id, function(err, foundArtist) {
-    res.render("artists/edit", {
-      artist: foundArtist
+router.get("/:id/edit", checkArtistOwnership, function(req, res) {
+  //is user logged in
+  if (req.isAuthenticated()) {
+    Artist.findById(req.params.id, function(err, foundArtist) {
+      if (err) {
+        res.redirect("/artists");
+      } else {
+        if (foundArtist.author.id.equals(req.user._id)) {
+          res.render("/artists/edit", {
+            artist: foundArtist
+          });
+        } else {
+          res.send("You do not have permission to do that !");
+        }
+      }
     });
-  });
-});
+  } else {
+    console.log("You need to be logged in to do that");
+    res.send("You need to be logged in to do that");
+  }
 
+});
 
 //UPDATE ROUTE
 router.put("/:id", function(req, res) {
@@ -74,5 +93,42 @@ router.put("/:id", function(req, res) {
     }
   });
 });
+
+//DELETE ROUTES
+
+router.delete("/:id", function(req, res) {
+  Artist.findByIdAndRemove(req.params.id, function(err) {
+    if (err) {
+      res.redirect("/artists");
+    } else {
+      res.redirect("/artists");
+    }
+  });
+});
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login");
+}
+
+function checkArtistOwnership(req, res, next) {
+  if (req.isAuthenticated()) {
+    Artist.findById(req.params.id, function(err, foundArtist) {
+      if (err) {
+        res.redirect("back");
+      } else {
+        if (foundArtist.author.id.equals(req.user._id)) {
+          next();
+        } else {
+          res.redirect("back");
+        }
+      }
+    });
+  } else {
+    res.redirect("back");
+  }
+}
 
 module.exports = router;
