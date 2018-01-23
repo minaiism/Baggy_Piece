@@ -20,10 +20,12 @@
               <%= artist.description %>
             </p>
             <p><em> Submitted By <%= artist.author.username %></em></p>
-            <a class="btn btn-warning" href="/artists/<%= artist._id %>/edit">Edit Artist</a>
-            <p>
+            <% if(currentUser && artist.author.id.equals(currentUser._id)){ %>
+              <a class="btn btn-warning" href="/artists/<%= artist._id %>/edit">Edit Artist</a>
               <form id="delete-form" action="/artists/<%= artist._id %>?_method=DELETE" method="POST">
                 <button class="btn btn-danger">Delete Artist</button>
+              </form>
+              <% } %>
           </div>
         </div>
         <div class="text-right">

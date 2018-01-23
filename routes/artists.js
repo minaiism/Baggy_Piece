@@ -61,30 +61,15 @@ router.get("/:id", function(req, res) {
 //EDIT ROUTE
 
 router.get("/:id/edit", checkArtistOwnership, function(req, res) {
-  //is user logged in
-  if (req.isAuthenticated()) {
-    Artist.findById(req.params.id, function(err, foundArtist) {
-      if (err) {
-        res.redirect("/artists");
-      } else {
-        if (foundArtist.author.id.equals(req.user._id)) {
-          res.render("/artists/edit", {
-            artist: foundArtist
-          });
-        } else {
-          res.send("You do not have permission to do that !");
-        }
-      }
+  Artist.findById(req.params.id, function(err, foundArtist) {
+    res.render("artists/edit", {
+      artist: foundArtist
     });
-  } else {
-    console.log("You need to be logged in to do that");
-    res.send("You need to be logged in to do that");
-  }
-
+  });
 });
 
 //UPDATE ROUTE
-router.put("/:id", function(req, res) {
+router.put("/:id", checkArtistOwnership, function(req, res) {
   Artist.findByIdAndUpdate(req.params.id, req.body.artist, function(err, updatedArtist) {
     if (err) {
       res.redirect("/artists");
@@ -96,7 +81,7 @@ router.put("/:id", function(req, res) {
 
 //DELETE ROUTES
 
-router.delete("/:id", function(req, res) {
+router.delete("/:id", checkArtistOwnership, function(req, res) {
   Artist.findByIdAndRemove(req.params.id, function(err) {
     if (err) {
       res.redirect("/artists");
