@@ -30,6 +30,7 @@ router.post("/", function(req, res) {
     } else {
       Comment.create(req.body.comment, function(err, comment) {
         if (err) {
+          req.flash("error", "Something went wrong!");
           console.log(err);
         } else {
           //add username and id to comment
@@ -40,6 +41,7 @@ router.post("/", function(req, res) {
           artist.comments.push(comment);
           artist.save();
           console.log(comment);
+          req.flash("success", "Comment added successfully");
           res.redirect('/artists/' + artist._id);
         }
       });
@@ -72,13 +74,14 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res) 
   });
 });
 
-//Comment destroy routes
+//COMMENT DELETE ROUTE
 
 router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, res) {
   Comment.findByIdAndRemove(req.params.comment_id, function(err) {
     if (err) {
       res.redirect("back");
     } else {
+      req.flash("success", "Comment deleted");
       res.redirect("/artists/" + req.params.id);
     }
   });

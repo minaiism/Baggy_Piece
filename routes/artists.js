@@ -5,12 +5,6 @@ let middleware = require("../middleware");
 
 //INDEX ROUTE
 router.get("/", function(req, res) {
-  // TODO: grayscale when not loggedIn
-  // if (!req.isAuthenticated()) {
-  //   let thumbnail = document.getElementsByClassName('thumbnail');
-  //   for (i = 0; i < thumbnail.length; i++) {
-  //     thumbnail[i].style.filter = "grayscale(100%)"
-  //   }
   Artist.find({}, function(err, allArtists) {
     if (err) {
       console.log(err);
