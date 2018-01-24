@@ -4,9 +4,10 @@
     <header class="jumbotron">
       <div class="container">
         <h1>Welcome to BaggyPiece</h1>
-        <p>View all Coolest Artists Ever</p>
+        <h2>View all Coolest Artists Ever</h2>
+        <h3>Log in and see everything in color!</h3>
         <p>
-          <a class="btn btn-primary btn-lg" href="/artists/new">Add New Artist</a>
+          <a class="btn btn-info btn-lg" href="/artists/new" style="color:black;">Add New Artist</a>
         </p>
       </div>
     </header>
@@ -16,13 +17,17 @@
       <% artists.forEach(function(artist){%>
         <div class="col-md-3 col-sm-6">
           <div class="thumbnail">
-            <img src="<%= artist.image %>">
-            <div class="caption">
-              <h4><%= artist.name %></h4>
-              <p>
-                <a href="/artists/<%= artist._id %>" class="btn btn-primary">More Info</a>
-              </p>
-            </div>
+            <% if(loggedIn){ %>
+              <img src="<%= artist.image %>">
+              <% } else {%>
+                <img src="<%= artist.image %>" style="-webkit-filter: grayscale(100%);">
+                <% } %>
+                  <div class="caption">
+                    <h4><%= artist.name %></h4>
+                    <p>
+                      <a href="/artists/<%= artist._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                  </div>
           </div>
         </div>
         <% }); %>

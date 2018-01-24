@@ -1,7 +1,58 @@
 body {
   background-image: url("http://ulzzangasia.com/wp-content/uploads/2015/07/404920-concert.jpg");
+  color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.jumbotron {
+  /* background-image: url(http://ulzzangasia.com/wp-content/uploads/2015/07/404920-concert.jpg); */
+  background-color: black;
+  text-align: center;
+  color: white;
+  opacity: 0.5;
+}
+
+h4 {
+  color: #879499;
+}
+
+.navbar, .navbar-default {
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+div.thumbnail {
+  background-color: black;
+  border-width: 5px;
+  border-style: groove;
+  border-color: #656B6E;
+}
+
+.thumbnail {
+  background-color: black;
 }
 
 .delete-form {
   display: inline;
 }
+
+.thumbnail img {
+  height: 17em;
+  width: 19em;
+  /* -webkit-filter: grayscale(100%); */
+}
+
+img.img-responsive {
+  height: 100%;
+  width: 100%;
+  filter: none;
+}
+
+div.row {
+  color: #656B6E;
+}
+
+navbar navbar-default
