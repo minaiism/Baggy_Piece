@@ -3,6 +3,7 @@ body {
   color: black;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Sigmar One', cursive;
 }
 
 .jumbotron {

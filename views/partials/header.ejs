@@ -5,6 +5,8 @@
   <title>BaggyPiece</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/stylesheet/main.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Fontdiner+Swanky|Fredericka+the+Great|Jacques+Francois+Shadow|Press+Start+2P|Sigmar+One|Syncopate" rel="stylesheet">
 </head>
 
 <body>
@@ -22,3 +24,17 @@
       </div>
     </div>
   </nav>
+
+  <div class="container">
+
+    <% if(error && error.length > 0){ %>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+      <% } %>
+        <% if(success && success.length > 0){ %>
+          <div class="alert alert-success" role="alert">
+            <%= success %>
+          </div>
+          <% } %>
+  </div>

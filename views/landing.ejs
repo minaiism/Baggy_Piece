@@ -1,15 +1,41 @@
-<% include partials/header %>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>BaggyPiece</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheet/landing.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Fontdiner+Swanky|Fredericka+the+Great|Jacques+Francois+Shadow|Press+Start+2P|Sigmar+One|Syncopate" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+</head>
+
+<body>
 
   <div class="container">
-    <header class="jumbotron">
-      <div class="container">
-        <h1>Welcome to BaggyPiece</h1>
-        <a href="/artists">View all artists</a>
-        <p>
-          <a class="btn btn-primary btn-lg" href="/artists/new">Add a New Artist</a>
-        </p>
+    <% if(error && error.length > 0){ %>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
       </div>
-    </header>
+      <% } %>
+        <% if(success && success.length > 0){ %>
+          <div class="alert alert-success" role="alert">
+            <%= success %>
+          </div>
+          <% } %>
   </div>
+
+  <div id="landing-header">
+    <h1>Welcome to BaggyPiece</h1>
+    <a href="/artists" class="btn btn-lg btn-success">View All Artists</a>
+  </div>
+
+  <ul class="slideshow">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
 
   <% include partials/footer %>

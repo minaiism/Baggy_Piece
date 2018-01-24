@@ -22,9 +22,11 @@ router.post("/register", function(req, res) {
   User.register(newUser, req.body.password, function(err, user) {
     if (err) {
       console.log(err);
+      req.flash("error", err.message);
       return res.render("register");
     } else {
       passport.authenticate("local")(req, res, function() {
+        req.flash("success", "Welcome to BaggyPiece" + " " + user.username);
         res.redirect("/artists");
       });
     }
@@ -44,6 +46,7 @@ router.post("/login", passport.authenticate("local", {
 // logic route
 router.get("/logout", function(req, res) {
   req.logout();
+  req.flash("success", "You logged out successfully!");
   res.redirect("/artists");
 });
 
