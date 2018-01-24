@@ -2,6 +2,7 @@ let express = require("express"),
   app = express(),
   bodyParser = require("body-parser"),
   mongoose = require("mongoose"),
+  flash = require("connect-flash"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
   methodOverride = require("method-override"),
@@ -10,13 +11,10 @@ let express = require("express"),
   User = require("./models/user"),
   seedDB = require("./seeds");
 
-
 //REQUIRING ROUTES
-
 let commentRoutes = require("./routes/comments"),
   artistRoutes = require("./routes/artists"),
   indexRoutes = require("./routes/index");
-
 
 mongoose.connect("mongodb://localhost/baggypiece");
 app.use(bodyParser.urlencoded({
@@ -26,6 +24,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 // seedDB(); //seed the DB
 app.use(methodOverride("_method"));
+app.use(flash());
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({

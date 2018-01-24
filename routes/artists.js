@@ -1,22 +1,30 @@
 let express = require("express");
 let router = express.Router();
 let Artist = require("../models/artist");
+let middleware = require("../middleware");
 
 //INDEX ROUTE
 router.get("/", function(req, res) {
+  // TODO: grayscale when not loggedIn
+  // if (!req.isAuthenticated()) {
+  //   let thumbnail = document.getElementsByClassName('thumbnail');
+  //   for (i = 0; i < thumbnail.length; i++) {
+  //     thumbnail[i].style.filter = "grayscale(100%)"
+  //   }
   Artist.find({}, function(err, allArtists) {
     if (err) {
       console.log(err);
     } else {
       res.render("artists/index", {
-        artists: allArtists
+        artists: allArtists,
+        loggedIn: req.isAuthenticated()
       });
     }
   });
 });
 
 //CREATE - add new artist to DB
-router.post("/", isLoggedIn, function(req, res) {
+router.post("/", middleware.isLoggedIn, function(req, res) {
   let name = req.body.name;
   let image = req.body.image;
   let description = req.body.description;
@@ -40,7 +48,7 @@ router.post("/", isLoggedIn, function(req, res) {
 });
 
 //NEW ROUTE
-router.get("/new", isLoggedIn, function(req, res) {
+router.get("/new", middleware.isLoggedIn, function(req, res) {
   res.render("artists/new");
 });
 
@@ -52,7 +60,8 @@ router.get("/:id", function(req, res) {
     } else {
       console.log(foundArtist);
       res.render("artists/show", {
-        artist: foundArtist
+        artist: foundArtist,
+        loggedIn: req.isAuthenticated()
       });
     }
   });
@@ -60,7 +69,7 @@ router.get("/:id", function(req, res) {
 
 //EDIT ROUTE
 
-router.get("/:id/edit", checkArtistOwnership, function(req, res) {
+router.get("/:id/edit", middleware.checkArtistOwnership, function(req, res) {
   Artist.findById(req.params.id, function(err, foundArtist) {
     res.render("artists/edit", {
       artist: foundArtist
@@ -69,7 +78,7 @@ router.get("/:id/edit", checkArtistOwnership, function(req, res) {
 });
 
 //UPDATE ROUTE
-router.put("/:id", checkArtistOwnership, function(req, res) {
+router.put("/:id", middleware.checkArtistOwnership, function(req, res) {
   Artist.findByIdAndUpdate(req.params.id, req.body.artist, function(err, updatedArtist) {
     if (err) {
       res.redirect("/artists");
@@ -81,7 +90,7 @@ router.put("/:id", checkArtistOwnership, function(req, res) {
 
 //DELETE ROUTES
 
-router.delete("/:id", checkArtistOwnership, function(req, res) {
+router.delete("/:id", middleware.checkArtistOwnership, function(req, res) {
   Artist.findByIdAndRemove(req.params.id, function(err) {
     if (err) {
       res.redirect("/artists");
@@ -90,30 +99,5 @@ router.delete("/:id", checkArtistOwnership, function(req, res) {
     }
   });
 });
-
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/login");
-}
-
-function checkArtistOwnership(req, res, next) {
-  if (req.isAuthenticated()) {
-    Artist.findById(req.params.id, function(err, foundArtist) {
-      if (err) {
-        res.redirect("back");
-      } else {
-        if (foundArtist.author.id.equals(req.user._id)) {
-          next();
-        } else {
-          res.redirect("back");
-        }
-      }
-    });
-  } else {
-    res.redirect("back");
-  }
-}
 
 module.exports = router;
