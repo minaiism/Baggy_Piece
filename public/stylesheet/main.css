@@ -54,9 +54,11 @@ div.thumbnail {
 }
 
 .thumbnail img {
-  height: 16em;
-  width: 18em;
+  height: 19rem;
+  width: 16rem;
   /* -webkit-filter: grayscale(100%); */
+  padding: 0;
+  margin: 0 auto;
 }
 
 img.img-responsive {
