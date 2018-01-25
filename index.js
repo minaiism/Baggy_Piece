@@ -51,7 +51,7 @@ app.use("/", indexRoutes);
 app.use("/artists", artistRoutes);
 app.use("/artists/:id/comments", commentRoutes);
 
-app.listen(8666, process.env.IP, function() {
+app.listen(process.env.PORT, process.env.IP, function() {
   console.log("Server is running");
 });
 
