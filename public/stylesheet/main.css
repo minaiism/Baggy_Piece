@@ -44,6 +44,9 @@ div.thumbnail {
 
 .thumbnail {
   background-color: black;
+  opacity: 0.9;
+  height: 90%;
+  width: 90%;
 }
 
 .delete-form {
@@ -51,8 +54,8 @@ div.thumbnail {
 }
 
 .thumbnail img {
-  height: 17em;
-  width: 19em;
+  height: 16em;
+  width: 18em;
   /* -webkit-filter: grayscale(100%); */
 }
 
