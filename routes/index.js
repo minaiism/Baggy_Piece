@@ -23,7 +23,7 @@ router.post("/register", function(req, res) {
     if (err) {
       console.log(err);
       req.flash("error", err.message);
-      return res.render("register");
+      res.redirect("/register");
     } else {
       passport.authenticate("local")(req, res, function() {
         req.flash("success", "Welcome to BaggyPiece" + " " + user.username);

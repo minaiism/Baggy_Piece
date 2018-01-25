@@ -11,7 +11,17 @@ body {
 }
 
 #landing-header h1 {
-  color: #fff;
+  color: #350938;
+}
+
+.btn-info, .btn-info:hover, .btn-info:active, .btn-info:visited {
+  background-color: #8064A2;
+  border: none;
+}
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+  background-color: #8064A2;
+  border: none;
 }
 
 .slideshow {
