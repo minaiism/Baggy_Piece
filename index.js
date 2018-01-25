@@ -16,7 +16,9 @@ let commentRoutes = require("./routes/comments"),
   artistRoutes = require("./routes/artists"),
   indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/baggypiece");
+// mongoose.connect("mongodb://localhost/baggypiece");
+mongoose.connect("mongodb://martyna:martyna@ds215388.mlab.com:15388/baggypiece");
+// mongodb://martyna:martyna@ds215388.mlab.com:15388/baggypiece
 app.use(bodyParser.urlencoded({
   extended: true
 }));
