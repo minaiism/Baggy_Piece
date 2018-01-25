@@ -17,8 +17,8 @@ let commentRoutes = require("./routes/comments"),
   indexRoutes = require("./routes/index");
 
 // console.log(process.env.DATABASEURL);
-mongoose.connect("mongodb://localhost/baggypiece");
-// mongoose.connect("mongodb://martyna:martyna@ds215388.mlab.com:15388/baggypiece");
+// mongoose.connect("mongodb://localhost/baggypiece");
+mongoose.connect("mongodb://martyna:martyna@ds215388.mlab.com:15388/baggypiece");
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -51,7 +51,7 @@ app.use("/", indexRoutes);
 app.use("/artists", artistRoutes);
 app.use("/artists/:id/comments", commentRoutes);
 
-app.listen(8666, process.env.IP, function() {
+app.listen(process.env.PORT, process.env.IP, function() {
   console.log("Server is running");
 });
 
