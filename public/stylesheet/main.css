@@ -1,10 +1,10 @@
 body {
-  background-image: url("http://ulzzangasia.com/wp-content/uploads/2015/07/404920-concert.jpg");
+  background-image: url("https://wallpaperscraft.com/image/black_background_line_violet_color_graphics_487_1920x1200.jpg");
   color: black;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Happy Monkey', cursive;
-  font-size: 13px;
+  font-family: 'Syncopate', cursive;
+  font-size: 15px;
 }
 
 .jumbotron {
@@ -13,11 +13,35 @@ body {
   background-size: cover;
   background: rgba(255, 255, 255, 0);
   text-align: center;
-  color: black;
+  color: white;
+}
+
+span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+span.glyphicon.glyphicon-headphones {
+  font-size: 40px;
+}
+
+p {
+  font-family: 'Happy Monkey';
+  font-size: 16px;
+}
+
+p.text-muted {
+  font-family: 'Syncopate', cursive;
+  font-size: 15px;
+}
+
+h1 {
+  color: white;
 }
 
 h4 {
-  color: #879499;
+  color: white;
+  font-size: 12px;
 }
 
 a {
@@ -38,8 +62,9 @@ a {
 div.thumbnail {
   background-color: black;
   border-width: 5px;
-  border-style: groove;
+  border-style: dotted;
   border-color: #656B6E;
+  border-color: #5A206E;
 }
 
 .thumbnail {
@@ -54,16 +79,16 @@ div.thumbnail {
 }
 
 .thumbnail img {
-  height: 19rem;
-  width: 16rem;
+  height: 18rem;
+  width: 17rem;
   /* -webkit-filter: grayscale(100%); */
   padding: 0;
   margin: 0 auto;
 }
 
 img.img-responsive {
-  height: 50%;
-  width: 50%;
+  height: 80%;
+  width: 80%;
   filter: none;
 }
 
@@ -72,7 +97,12 @@ div.row {
 }
 
 div.container {
-  color: black;
+  color: white;
+}
+
+div.col-md-12 {
+  font-family: 'Happy Monkey', cursive;
+  font-size: 17px;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
@@ -97,4 +127,9 @@ div.container {
 
 .list-group-item.active:hover {
   background-color: black;
+}
+
+a.btn.btn-info.btn-lg {
+  font-family: 'Syncopate', cursive;
+  font-size: 15px;
 }
