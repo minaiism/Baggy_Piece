@@ -10,7 +10,7 @@ middlewareObj.checkArtistOwnership = function(req, res, next) {
         req.flash("error", "Artist not found");
         res.redirect("back");
       } else {
-        if (foundArtist.author.id.equals(req.user._id)) {
+        if (foundArtist.author.id.equals(req.user._id) || req.user.isAdmin) {
           next();
         } else {
           res.flash("error", "You do not have permission to do that!");
@@ -30,7 +30,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
       if (err) {
         res.redirect("back");
       } else {
-        if (foundComment.author.id.equals(req.user._id)) {
+        if (foundComment.author.id.equals(req.user._id) || req.user.isAdmin) {
           next();
         } else {
           req.flash("error", "You need to be logged in to do that");

@@ -27,7 +27,6 @@ span.glyphicon.glyphicon-headphones {
 
 p {
   font-family: 'Happy Monkey';
-  font-size: 16px;
 }
 
 p.text-muted {
@@ -57,6 +56,10 @@ a {
 
 .nav.navbar.navbar-default {
   color: white;
+}
+
+div.caption-full {
+  text-align: justify;
 }
 
 div.thumbnail {
@@ -102,7 +105,12 @@ div.container {
 
 div.col-md-12 {
   font-family: 'Happy Monkey', cursive;
-  font-size: 17px;
+  font-size: 13px;
+}
+
+span.pull-right {
+  font-size: 12px;
+  text-align: justify;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
