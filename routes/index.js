@@ -3,6 +3,8 @@ let router = express.Router();
 let passport = require("passport");
 let User = require("../models/user");
 
+setupAdmin();
+
 //LANDING PAGE
 router.get("/", function(req, res) {
   res.render("landing");
@@ -16,13 +18,16 @@ router.get("/register", function(req, res) {
 
 //handle sign up logic
 router.post("/register", function(req, res) {
-
   let newUser = new User({
-    username: req.body.username
+    username: req.body.username,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    avatar: req.body.avatar
   });
-  if (req.body.adminCode === "secretcode") {
-    newUser.isAdmin = true;
-  }
+  // if (req.body.adminCode === "secretcode") {
+  //   newUser.isAdmin = true;
+  // }
   User.register(newUser, req.body.password, function(err, user) {
     if (err) {
       console.log(err);
@@ -54,12 +59,36 @@ router.get("/logout", function(req, res) {
   res.redirect("/artists");
 });
 
-//middleware
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/login");
+//USER PROFILES
+router.get("/users/:id", function(req, res) {
+  User.findById(req.params.id, function(err, foundUser) {
+    if (err) {
+      req.flash("error", "Something went wrong!");
+      res.redirect("/");
+    } else {
+      res.render("users/show", {
+        user: foundUser
+      });
+    }
+  });
+});
+
+function setupAdmin() {
+  User.findByUsername("admin", function(err, user) {
+    if (user) {} else {
+      User.register({
+        username: "admin",
+        isAdmin: true
+      }, "admin", function(err, user) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("added admin");
+          //create a comment on each campground
+        }
+      });
+    }
+  });
 }
 
 module.exports = router;

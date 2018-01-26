@@ -82,8 +82,8 @@ div.thumbnail {
 }
 
 .thumbnail img {
-  height: 18rem;
-  width: 17rem;
+  height: 22rem;
+  width: 25rem;
   /* -webkit-filter: grayscale(100%); */
   padding: 0;
   margin: 0 auto;
