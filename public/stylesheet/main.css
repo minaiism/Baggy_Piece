@@ -22,7 +22,7 @@ span {
 }
 
 span.glyphicon.glyphicon-headphones {
-  font-size: 40px;
+  font-size: 20px;
 }
 
 p {
@@ -47,6 +47,19 @@ a {
   color: white !important;
 }
 
+textarea {
+  width: 100%;
+  height: 180px;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: none;
+  color: #555;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
 .navbar, .navbar-default {
   background-color: black;
   margin: 0;
@@ -64,17 +77,21 @@ div.caption-full {
 
 div.thumbnail {
   background-color: black;
-  border-width: 5px;
+  border-width: 2px;
   border-style: dotted;
-  border-color: #656B6E;
   border-color: #5A206E;
+  margin: 0 auto;
 }
 
 .thumbnail {
   background-color: black;
   opacity: 0.9;
-  height: 90%;
+  height: 95%;
   width: 90%;
+}
+
+div.caption {
+  height: 100px;
 }
 
 .delete-form {
@@ -90,8 +107,8 @@ div.thumbnail {
 }
 
 img.img-responsive {
-  height: 80%;
-  width: 80%;
+  height: 60%;
+  width: 60%;
   filter: none;
 }
 
@@ -129,15 +146,24 @@ span.pull-right {
 }
 
 .list-group-item.active {
-  background-color: #8064A2;
-  border: none;
+  background-color: #cc181e;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
 }
 
 .list-group-item.active:hover {
-  background-color: black;
+  background-color: #666666;
+  border-color: black;
 }
 
 a.btn.btn-info.btn-lg {
   font-family: 'Syncopate', cursive;
-  font-size: 15px;
+  font-size: 14px;
+}
+
+hr {
+  border-color: #5A206E;
+  border-style: dashed;
+  border-width: 2px;
 }

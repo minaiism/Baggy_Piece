@@ -4,13 +4,11 @@
     <h1 style="font-size:30px; text-align:center; font-weight: bold; font-family:Happy Monkey; color:purple;"> YOU ARE AN ADMIN! </h1>
     <% } %>
       <div class="container">
+
         <header class="jumbotron alpha60">
           <div class="container">
             <h2> Welcome to BaggyPiece <span class="glyphicon glyphicon-headphones"></span></h2>
             <h5>View The Most Impactful and Promising Artists of All Time!</h5>
-            <p>
-              <a class="btn btn-info btn-lg" href="/artists/new">Add New Artist</a>
-            </p>
           </div>
         </header>
 
@@ -25,9 +23,9 @@
                     <img src="<%= artist.image %>" style="-webkit-filter: grayscale(100%);">
                     <% } %>
                       <div class="caption">
-                        <h4><%= artist.name %></h4>
+                        <h4 style="height:22px;"><%= artist.name %></h4>
                         <p>
-                          <a href="/artists/<%= artist._id %>" class="btn btn-primary"><span class="glyphicon glyphicon-fire"></span> More Info</a>
+                          <a href="/artists/<%= artist._id %>" class="btn btn-primary"><span class="glyphicon glyphicon-fire" style="height:20px;"></span> More Info</a>
                         </p>
                       </div>
               </div>

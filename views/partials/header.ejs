@@ -6,6 +6,8 @@
   <title>BaggyPiece</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/stylesheet/main.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheet/bootstrap-social.css">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Fontdiner+Swanky|Fredericka+the+Great|Jacques+Francois+Shadow|Press+Start+2P|Sigmar+One|Syncopate|Marcellus+SC|Happy+Monkey" rel="stylesheet">
 </head>
@@ -20,12 +22,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-
         <a class="navbar-brand" style="color:white;" href="/">BaggyPiece <span class="glyphicon glyphicon-fire" ></span></a>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="<%= typeof page !== 'undefined' && page === 'artists' ? 'active' : '' %>"><a href="/artists"><span class="glyphicon glyphicon-home" ></span>  Home</a></li>
+          <a class="btn btn-info btn-lg" href="/artists/new" style="float:right; background-color: black;"><span class="glyphicon glyphicon-plus" style="font-size:20px; border:none;"></span> Add New Artist</a>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if(!currentUser){ %>

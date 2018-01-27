@@ -4,30 +4,10 @@
     <div class="row">
       <div class="col-md-3">
         <p class="lead"></p>
-        <div class="footer-social-icons">
-          <h4 class="_14" style="font-size: 13px;">Follow Your Favourite Artist</h4>
-          <ul class="social-icons">
-            <li><a href="" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
-            <li><a href="" class="social-icon"> <i class="fa fa-spotify"></i></a></li>
-            <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
-            <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
-            <li><a href="" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
-            <li><a href="" class="social-icon"> <i class="fa fa-pinterest"></i></a></li>
-          </ul>
-        </div>
         <div class="list-group">
-          <li class="list-group-item active" style="font-size: 13px; text-align:center;font-weight: bold;">TOP 10 VIDEOS ON YOUTUBE</li>
-          <li class="list-group-item active">1</li>
-          <li class="list-group-item active">2</li>
-          <li class="list-group-item active">3</li>
-          <li class="list-group-item active">4</li>
-          <li class="list-group-item active">5</li>
-          <li class="list-group-item active">6</li>
-          <li class="list-group-item active">7</li>
-          <li class="list-group-item active">8</li>
-          <li class="list-group-item active">9</li>
-          <li class="list-group-item active">10</li>
-
+          <li class="list-group-item active">About</li>
+          <li class="list-group-item active">Music</li>
+          <li class="list-group-item active">Concerts</li>
         </div>
       </div>
       <div class="col-md-9">
@@ -43,7 +23,7 @@
                   <p>
                     <%= artist.description %>
                   </p>
-                  <p><em> Submitted By <span style="color:purple;"><%= artist.author.username %></span></em></p>
+                  <p><em> Submitted By <span style="color:purple;"><a href="/users/<%= artist.author.id %"><%= artist.author.username %></a></span></em></p>
                   <% if(currentUser && artist.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                     <a class="btn btn-warning" href="/artists/<%= artist._id %>/edit">Edit Artist</a>
                     <form class="delete-form" action="/artists/<%= artist._id %>?_method=DELETE" method="POST">
@@ -52,9 +32,8 @@
                     <% } %>
                 </div>
         </div>
-        <hr style="border:none;">
-        <div class=" text-right">
-          <a class=" btn btn-success " href="/artists/<%=artist._id %>/comments/new" style="height:33px;text-align: center;">Add New Comment</a>
+        <div class="text-right">
+          <a class="btn btn-success" href="/artists/<%=artist._id %>/comments/new">Add New Comment</a>
         </div>
         <hr>
         <% artist.comments.forEach(function(comment){ %>
@@ -65,7 +44,7 @@
               <%= comment.text %>
                 </p>
                 <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                  <a class="btn btn-xs btn-warning" href="/artists/<%= artist._id %>/comments/<%= comment._id %>/edit"> Edit</a>
+                  <a class="btn btn-xs btn-warning" href="/artists/<%= artist._id %>/comments/<%= comment._id %>/edit">Edit</a>
                   <form class="delete-form" action="/artists/<%= artist._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                     <input type="submit" class="btn btn-xs btn-danger" value="Delete">
                     <%} %>
