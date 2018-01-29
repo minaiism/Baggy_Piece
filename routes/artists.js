@@ -5,16 +5,32 @@ let middleware = require("../middleware");
 
 //INDEX ROUTE
 router.get("/", function(req, res) {
-  Artist.find({}, function(err, allArtists) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("artists/index", {
-        artists: allArtists,
-        loggedIn: req.isAuthenticated()
-      });
-    }
-  });
+  if (req.query.search) {
+    const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+    Artist.find({
+      name: regex
+    }, function(err, allArtists) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("artists/index", {
+          artists: allArtists,
+          loggedIn: req.isAuthenticated()
+        });
+      }
+    });
+  } else {
+    Artist.find({}, function(err, allArtists) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render("artists/index", {
+          artists: allArtists,
+          loggedIn: req.isAuthenticated()
+        });
+      }
+    });
+  }
 });
 
 //CREATE - add new artist to DB
@@ -93,5 +109,9 @@ router.delete("/:id", middleware.checkArtistOwnership, function(req, res) {
     }
   });
 });
+
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
 
 module.exports = router;
