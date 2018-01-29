@@ -200,3 +200,7 @@ hr {
 #search-artist, #search-artist-button {
   font-family: Happy Monkey;
 }
+
+span.glyphicon-search:before {
+  font-size: 20px;
+}
