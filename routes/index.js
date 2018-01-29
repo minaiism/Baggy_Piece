@@ -2,6 +2,7 @@ let express = require("express");
 let router = express.Router();
 let passport = require("passport");
 let User = require("../models/user");
+let Artist = require("../models/artist");
 
 setupAdmin();
 
@@ -63,13 +64,19 @@ router.get("/logout", function(req, res) {
 router.get("/users/:id", function(req, res) {
   User.findById(req.params.id, function(err, foundUser) {
     if (err) {
-      req.flash("error", "Something went wrong!");
-      res.redirect("/");
-    } else {
-      res.render("users/show", {
-        user: foundUser
-      });
+      req.flash("error", "Something went wrong.");
+      return res.redirect("/");
     }
+    Artist.find().where('author.id').equals(foundUser._id).exec(function(err, artists) {
+      if (err) {
+        req.flash("error", "Something went wrong.");
+        return res.redirect("/");
+      }
+      res.render("users/show", {
+        user: foundUser,
+        artists: artists
+      });
+    });
   });
 });
 

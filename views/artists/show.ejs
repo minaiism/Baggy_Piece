@@ -43,7 +43,7 @@
                   <p>
                     <%= artist.description %>
                   </p>
-                  <p><em> Submitted By <span style="color:purple;"><%= artist.author.username %></span></em></p>
+                  <p><em>Submitted By : <a href="/users/<%= artist.author.id %>"><span class="username-name"><%= artist.author.username %></span></a> ,<span class="moment"> <%= moment(artist.createdAt).fromNow()%></span></em></p>
                   <% if(currentUser && artist.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                     <a class="btn btn-warning" href="/artists/<%= artist._id %>/edit">Edit Artist</a>
                     <form class="delete-form" action="/artists/<%= artist._id %>?_method=DELETE" method="POST">
@@ -60,8 +60,8 @@
         <% artist.comments.forEach(function(comment){ %>
           <div class="row">
             <div class="col-md-12">
-              <strong><span style="color:purple;"><%= comment.author.username %></span></strong>
-              <span class="pull-right">10 days ago</span>
+              <strong><span class="username-name"><%= comment.author.username %></span></strong>
+              <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
               <%= comment.text %>
                 </p>
                 <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>

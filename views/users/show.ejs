@@ -1,59 +1,28 @@
 <% include ../partials/header %>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <p class="lead"></p>
-        <div class="list-group">
-          <li class="list-group-item active">About</li>
-          <li class="list-group-item active">Music</li>
-          <li class="list-group-item active">Concerts</li>
+  <div class="row">
+    <div class="cold-md-4">
+      <h1 style="text-align: center;"><%= user.firstName + " " + user.lastName %></h1>
+      <div class="thumbnail" style="height:450px; width: 300px;">
+        <img src="<%=user.avatar %>" alt="user profile image" class="avatar">
+        <div class="caption" id="caption2">
+          <a href="mailto:<%=user.email %>" class="useremail">
+            <%= user.email %>
+          </a>
         </div>
-      </div>
-      <div class="col-md-9">
-        <div class="thumbnail">
-          <% if(loggedIn){ %>
-            <img class="img-responsive" src="<%= artist.image %>">
-            <% } else {%>
-              <img class="img-responsive" src="<%= artist.image %>" style="-webkit-filter: grayscale(100%);">
-              <% } %>
-                <div class="caption-full">
-                  <h4 class="pull-right">10/10</h4>
-                  <h4><a><span style="color:purple;"><%= artist.name %></span></a></h4>
-                  <p>
-                    <%= artist.description %>
-                  </p>
-                  <p><em> Submitted By <span style="color:purple;"><a href="/users/<%= artist.author.id %"><%= artist.author.username %></a></span></em></p>
-                  <% if(currentUser && artist.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                    <a class="btn btn-warning" href="/artists/<%= artist._id %>/edit">Edit Artist</a>
-                    <form class="delete-form" action="/artists/<%= artist._id %>?_method=DELETE" method="POST">
-                      <button class="btn btn-danger">Delete Artist</button>
-                    </form>
-                    <% } %>
-                </div>
-        </div>
-        <div class="text-right">
-          <a class="btn btn-success" href="/artists/<%=artist._id %>/comments/new">Add New Comment</a>
-        </div>
-        <hr>
-        <% artist.comments.forEach(function(comment){ %>
-          <div class="row">
-            <div class="col-md-12">
-              <strong><span style="color:purple;"><%= comment.author.username %></span></strong>
-              <span class="pull-right">10 days ago</span>
-              <%= comment.text %>
-                </p>
-                <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-                  <a class="btn btn-xs btn-warning" href="/artists/<%= artist._id %>/comments/<%= comment._id %>/edit">Edit</a>
-                  <form class="delete-form" action="/artists/<%= artist._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-                    <input type="submit" class="btn btn-xs btn-danger" value="Delete">
-                    <%} %>
-            </div>
-          </div>
-          <%  }); %>
+        <% artists.forEach(function(artist){ %>
+          <h3 class="bumblebee"><%= user.username %>&#8217;s Artist </h3>
+          <ul class="bumblebee">
+            <li>
+              <a href="/artists/<%= artist.id %>">
+                <%= artist.name %>
+              </a>
+            </li>
+          </ul>
+          <% }); %>
       </div>
     </div>
   </div>
-  </div>
+
 
   <% include ../partials/footer %>
