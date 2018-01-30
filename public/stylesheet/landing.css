@@ -12,16 +12,18 @@ body {
 }
 
 #landing-header h1 {
-  color: #060b44;
+  font-size: 40px;
+  color: #390c5e;
+  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 }
 
 .btn-info, .btn-info:hover, .btn-info:active, .btn-info:visited {
-  background-color: #8064A2;
+  background-color: #390c5e;
   border: none;
 }
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
-  background-color: #8064A2;
+  background-color: #390c5e;
   border: none;
 }
 
