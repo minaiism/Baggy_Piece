@@ -10,8 +10,8 @@
             <%= user.email %>
           </a>
         </div>
+        <h3 class="bumblebee"><%= user.username %>&#8217;s Artists </h3>
         <% artists.forEach(function(artist){ %>
-          <h3 class="bumblebee"><%= user.username %>&#8217;s Artist </h3>
           <ul>
             <li class="bumblebee">
               <a href="/artists/<%= artist.id %>" class="bumblebee">
