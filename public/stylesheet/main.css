@@ -7,22 +7,13 @@ body {
   font-size: 15px;
 }
 
-.jumbotron {
-  background-image: url(https://i.pinimg.com/736x/cf/a1/0f/cfa10f74b0337820a353d20940015753--heart-beat-my-heart.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background: rgba(255, 255, 255, 0);
-  text-align: center;
+h1 {
   color: white;
 }
 
-span {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-span.glyphicon.glyphicon-headphones::before {
-  font-size: 40px;
+h4 {
+  color: white;
+  font-size: 12px;
 }
 
 p {
@@ -34,17 +25,96 @@ p.text-muted {
   font-size: 15px;
 }
 
-h1 {
-  color: white;
-}
-
-h4 {
-  color: white;
-  font-size: 12px;
-}
-
 a {
   color: white !important;
+}
+
+a.btn.btn-info.btn-lg {
+  font-family: 'Syncopate', cursive;
+  font-size: 14px;
+}
+
+hr {
+  border-color: #5A206E;
+  border-style: dashed;
+  border-width: 2px;
+}
+
+.jumbotron {
+  background-image: url(https://i.pinimg.com/736x/cf/a1/0f/cfa10f74b0337820a353d20940015753--heart-beat-my-heart.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: rgba(255, 255, 255, 0);
+  text-align: center;
+  color: white;
+}
+
+div.caption-full {
+  text-align: justify;
+}
+
+div.thumbnail {
+  background-color: black;
+  border-width: 2px;
+  border-style: dotted;
+  border-color: #5A206E;
+  margin: 0 auto;
+}
+
+.thumbnail {
+  background-color: black;
+  opacity: 0.9;
+  height: 95%;
+  width: 90%;
+}
+
+.thumbnail img {
+  height: 22rem;
+  width: 25rem;
+  /* -webkit-filter: grayscale(100%); */
+  padding: 0;
+  margin: 0 auto;
+}
+
+img.img-responsive {
+  height: 60%;
+  width: 60%;
+  filter: none;
+}
+
+div.caption {
+  height: 100px;
+}
+
+div.row {
+  color: #656B6E;
+}
+
+div.container {
+  color: white;
+}
+
+div.col-md-12 {
+  font-family: 'Happy Monkey', cursive;
+  font-size: 13px;
+}
+
+span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+span.glyphicon.glyphicon-headphones::before {
+  font-size: 40px;
+}
+
+span.pull-right {
+  font-size: 12px;
+  text-align: justify;
+}
+
+span.glyphicon-search:before {
+  font-size: 20px;
 }
 
 textarea {
@@ -71,63 +141,8 @@ textarea {
   color: white;
 }
 
-div.caption-full {
-  text-align: justify;
-}
-
-div.thumbnail {
-  background-color: black;
-  border-width: 2px;
-  border-style: dotted;
-  border-color: #5A206E;
-  margin: 0 auto;
-}
-
-.thumbnail {
-  background-color: black;
-  opacity: 0.9;
-  height: 95%;
-  width: 90%;
-}
-
-div.caption {
-  height: 100px;
-}
-
 .delete-form {
   display: inline;
-}
-
-.thumbnail img {
-  height: 22rem;
-  width: 25rem;
-  /* -webkit-filter: grayscale(100%); */
-  padding: 0;
-  margin: 0 auto;
-}
-
-img.img-responsive {
-  height: 60%;
-  width: 60%;
-  filter: none;
-}
-
-div.row {
-  color: #656B6E;
-}
-
-div.container {
-  color: white;
-}
-
-div.col-md-12 {
-  font-family: 'Happy Monkey', cursive;
-  font-size: 13px;
-}
-
-span.pull-right {
-  font-size: 12px;
-  text-align: justify;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
@@ -157,50 +172,62 @@ span.pull-right {
   border-color: black;
 }
 
-a.btn.btn-info.btn-lg {
-  font-family: 'Syncopate', cursive;
-  font-size: 14px;
-}
-
-hr {
-  border-color: #5A206E;
-  border-style: dashed;
-  border-width: 2px;
-}
-
 .avatar {
-  border: dotted;
-  border-width: 3px;
-  border-color: #5A206E;
+  border: groove;
+  border-width: 6px;
+  border-color: #a060a3;
 }
 
 #caption2 {
   text-align: center;
-  font-size: 13px;
+  font-size: 15px;
+  font-family: Happy Monkey;
 }
 
 .bumblebee {
   text-align: center;
-  font-size: 15px;
-  border-color: #5A206E;
-  border-width: 1px;
-  border-style: dotted;
+  font-size: 17px;
+  font-family: Happy Monkey;
+  color: pink;
 }
 
 .username-name {
-  color: #5A206E;
+  color: #c4ede9;
 }
 
-.moment {
+.username-name:hover {
+  color: #bf40d6;
+}
+
+.moment-1 {
   font-size: 13px;
   color: white;
-  color: #0e477f;
+  color: #a060a3;
 }
 
 #search-artist, #search-artist-button {
   font-family: Happy Monkey;
 }
 
-span.glyphicon-search:before {
+.artist-name-font {
+  color: #a060a3;
+  font-family: Bowlby One SC;
   font-size: 20px;
+}
+
+#indvimage {
+  background-image: url("https://i.pinimg.com/736x/d7/2f/4c/d72f4c82e0921015f82d7484f99166c4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 780px;
+  width: 400px;
+  opacity: 0.6;
+  border: 2px;
+  border-style: groove;
+  border-color: #a060a3;
+}
+
+#first-last {
+  text-align: center;
+  color: #a322ad;
 }
