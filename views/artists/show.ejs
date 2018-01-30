@@ -7,12 +7,12 @@
         <div class="footer-social-icons">
           <h4 class="_14" style="font-size: 13px;">Follow Your Favourite Artist</h4>
           <ul class="social-icons">
-            <li><a href="" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
-            <li><a href="" class="social-icon"> <i class="fa fa-spotify"></i></a></li>
-            <li><a href="" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
-            <li><a href="" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
-            <li><a href="" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
-            <li><a href="" class="social-icon"> <i class="fa fa-pinterest"></i></a></li>
+            <li><a target="_blank" href="<%= artist.youtube %>" class="social-icon"> <i class="fa fa-youtube"></i></a></li>
+            <li><a target="_blank" href="<%= artist.spotify %>" class="social-icon"> <i class="fa fa-spotify"></i></a></li>
+            <li><a target="_blank" href="<%= artist.facebook %>" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+            <li><a target="_blank" href="<%= artist.twitter %>" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+            <li><a target="_blank" href="<%= artist.instagram %>" class="social-icon"> <i class="fa fa-instagram"></i></a></li>
+            <li><a target="_blank" href="<%= artist.pinterest %>" class="social-icon"> <i class="fa fa-pinterest"></i></a></li>
           </ul>
         </div>
         <div class="list-group">
@@ -38,12 +38,12 @@
               <img class="img-responsive" src="<%= artist.image %>" style="-webkit-filter: grayscale(100%);">
               <% } %>
                 <div class="caption-full">
-                  <h4 class="pull-right">10/10</h4>
+                  <h4 class="pull-right"></h4>
                   <h4><a><span style="color:purple;"><%= artist.name %></span></a></h4>
                   <p>
                     <%= artist.description %>
                   </p>
-                  <p><em>Submitted By : <a href="/users/<%= artist.author.id %>"><span class="username-name"><%= artist.author.username %></span></a> ,<span class="moment"> <%= moment(artist.createdAt).fromNow()%></span></em></p>
+                  <p><em>Submitted By : <a href="/users/<%= artist.author.id %>"><span class="username-name"><%= artist.author.username %></span></a> ,<span class="moment-1"> <%= moment(artist.createdAt).fromNow()%></span></em></p>
                   <% if(currentUser && artist.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                     <a class="btn btn-warning" href="/artists/<%= artist._id %>/edit">Edit Artist</a>
                     <form class="delete-form" action="/artists/<%= artist._id %>?_method=DELETE" method="POST">

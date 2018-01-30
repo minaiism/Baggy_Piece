@@ -35,19 +35,23 @@ router.get("/", function(req, res) {
 
 //CREATE - add new artist to DB
 router.post("/", middleware.isLoggedIn, function(req, res) {
-  let name = req.body.name;
-  let image = req.body.image;
-  let description = req.body.description;
-  let author = {
-    id: req.user._id,
-    username: req.user.username
-  };
+
   let newArtist = {
-    name: name,
-    image: image,
-    description: description,
-    author: author
+    name: req.body.name,
+    image: req.body.image,
+    description: req.body.description,
+    youtube: req.body.youtube,
+    spotify: req.body.spotify,
+    facebook: req.body.facebook,
+    twitter: req.body.twitter,
+    instagram: req.body.instagram,
+    pinterest: req.body.pinterest,
+    author: {
+      id: req.user._id,
+      username: req.user.username
+    }
   };
+
   Artist.create(newArtist, function(err, newlyCreated) {
     if (err) {
       console.log(err);
