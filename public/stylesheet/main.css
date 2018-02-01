@@ -216,12 +216,13 @@ textarea {
 }
 
 #indvimage {
-  background-image: url("https://i.pinimg.com/736x/d7/2f/4c/d72f4c82e0921015f82d7484f99166c4.jpg");
+  /* background-image: url("https://i.pinimg.com/736x/d7/2f/4c/d72f4c82e0921015f82d7484f99166c4.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: black;
   height: 780px;
   width: 400px;
-  opacity: 0.9;
+  opacity: 0.8;
   border: 2px;
   border-style: groove;
   border-color: #a060a3;

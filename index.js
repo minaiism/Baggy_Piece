@@ -18,6 +18,7 @@ let commentRoutes = require("./routes/comments"),
   indexRoutes = require("./routes/index");
 
 mongoose.connect(process.env.MONGO_URI);
+console.log(process.env.MONGO_URI);
 
 app.use(bodyParser.urlencoded({
   extended: true
