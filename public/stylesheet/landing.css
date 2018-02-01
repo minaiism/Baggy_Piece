@@ -54,11 +54,11 @@ body {
 }
 
 .slideshow li:nth-child(1) {
-  background-image: url(http://www.daan-mag.com/wp-content/uploads/2016/04/The_Boxer_Rebellion_Ocean_By_Ocean_Album_CD_Review_London_UK_Indie_Rock_Header.jpg);
+  background-image: url(http://digitalspyuk.cdnds.net/15/29/1024x512/landscape-music-everything-everythings-get-to-heaven.jpg);
 }
 
 .slideshow li:nth-child(2) {
-  background-image: url(https://68.media.tumblr.com/24d9f8776c65acc625ef3bf2ee19ea00/tumblr_orelfwaHdD1rvt708o2_1280.jpg);
+  background-image: url(https://images-na.ssl-images-amazon.com/images/I/816A3Dew23L._SL1500_.jpg);
   animation-delay: 10s;
 }
 
@@ -68,12 +68,12 @@ body {
 }
 
 .slideshow li:nth-child(4) {
-  background-image: url(http://digitalspyuk.cdnds.net/15/29/1024x512/landscape-music-everything-everythings-get-to-heaven.jpg);
+  background-image: url(http://www.daan-mag.com/wp-content/uploads/2016/04/The_Boxer_Rebellion_Ocean_By_Ocean_Album_CD_Review_London_UK_Indie_Rock_Header.jpg);
   animation-delay: 30s;
 }
 
 .slideshow li:nth-child(5) {
-  background-image: url(https://images-na.ssl-images-amazon.com/images/I/816A3Dew23L._SL1500_.jpg);
+  background-image: url(https://68.media.tumblr.com/24d9f8776c65acc625ef3bf2ee19ea00/tumblr_orelfwaHdD1rvt708o2_1280.jpg);
   animation-delay: 40s;
 }
 
