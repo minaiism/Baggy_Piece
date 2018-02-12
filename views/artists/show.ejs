@@ -16,18 +16,10 @@
           </ul>
         </div>
         <div class="list-group">
-          <li class="list-group-item active" style="font-size: 13px; text-align:center;font-weight: bold;">TOP 10 VIDEOS ON YOUTUBE</li>
-          <li class="list-group-item active">1</li>
-          <li class="list-group-item active">2</li>
-          <li class="list-group-item active">3</li>
-          <li class="list-group-item active">4</li>
-          <li class="list-group-item active">5</li>
-          <li class="list-group-item active">6</li>
-          <li class="list-group-item active">7</li>
-          <li class="list-group-item active">8</li>
-          <li class="list-group-item active">9</li>
-          <li class="list-group-item active">10</li>
-
+          <li id="videosid" class="list-group-item active">TOP 10 VIDEOS ON YOUTUBE</li>
+          <% videoItems.forEach((videoItem) => { %>
+          <li id="titlefont" class="list-group-item active"><a target="_blank" href="<%= videoItem.link %>"><%= videoItem.title %></a></li>
+<% }); %>
         </div>
       </div>
       <div class="col-md-9">

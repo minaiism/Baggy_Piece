@@ -6,7 +6,6 @@ let Artist = require("../models/artist");
 let Comment = require("../models/comment");
 let middleware = require("../middleware");
 
-
 //COMMENTS ROUTES
 //Comments new
 router.get("/new", middleware.isLoggedIn, function(req, res) {
@@ -75,7 +74,6 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res) 
 });
 
 //COMMENT DELETE ROUTE
-
 router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, res) {
   Comment.findByIdAndRemove(req.params.comment_id, function(err) {
     if (err) {
@@ -86,13 +84,5 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
     }
   });
 });
-
-
-
-//middleware
-
-
-
-
 
 module.exports = router;

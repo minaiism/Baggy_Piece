@@ -3,12 +3,9 @@ let express = require("express"),
   bodyParser = require("body-parser"),
   mongoose = require("mongoose"),
   flash = require("connect-flash"),
-  moment = require("moment"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
   methodOverride = require("method-override"),
-  Artist = require("./models/artist"),
-  Comment = require("./models/comment"),
   User = require("./models/user"),
   seedDB = require("./seeds");
 

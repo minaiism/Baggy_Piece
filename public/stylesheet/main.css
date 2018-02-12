@@ -59,6 +59,8 @@ div.thumbnail {
   border-style: dotted;
   border-color: #5A206E;
   margin: 0 auto;
+  height: 80%;
+  width:80%;
 }
 
 .thumbnail {
@@ -93,6 +95,16 @@ div.row {
 div.container {
   color: white;
 }
+/*div.col-md-3 {*/
+
+  /*width: 320px;*/
+/*}*/
+
+/*div.col-md-9 {*/
+
+  /*width: 800px;*/
+/*}*/
+
 
 div.col-md-12 {
   font-family: 'Happy Monkey', cursive;
@@ -231,4 +243,21 @@ textarea {
 #first-last {
   text-align: center;
   color: #a322ad;
+}
+
+#titlefont{
+  text-align: center;
+  font-size: 12px;
+  font-family: Happy Monkey;
+
+}
+
+#videosid{
+ font-size: 13px;
+  text-align:center;
+  font-weight: bold;
+}
+
+ul.social-icons{
+
 }
