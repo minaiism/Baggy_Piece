@@ -7,18 +7,18 @@ let Artist = require("../models/artist");
 setupAdmin();
 
 //LANDING PAGE
-router.get("/", function(req, res) {
+router.get("/", (req, res) =>{
   res.render("landing");
 });
 
 //AUTH ROUTES
 //show register form
-router.get("/register", function(req, res) {
+router.get("/register", (req, res)=> {
   res.render("register");
 });
 
 //handle sign up logic
-router.post("/register", function(req, res) {
+router.post("/register", (req, res)=> {
   let newUser = new User({
     username: req.body.username,
     firstName: req.body.firstName,
@@ -29,7 +29,7 @@ router.post("/register", function(req, res) {
   // if (req.body.adminCode === "secretcode") {
   //   newUser.isAdmin = true;
   // }
-  User.register(newUser, req.body.password, function(err, user) {
+  User.register(newUser, req.body.password, (err, user) =>{
     if (err) {
       console.log(err);
       req.flash("error", err.message);
@@ -44,25 +44,25 @@ router.post("/register", function(req, res) {
 });
 
 // show login form
-router.get("/login", function(req, res) {
+router.get("/login", (req, res) =>{
   res.render("login");
 });
 // handling login logic
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/artists",
   failureRedirect: "/login"
-}), function(req, res) {});
+}), (req, res) =>{});
 
 // logic route
-router.get("/logout", function(req, res) {
+router.get("/logout", (req, res) =>{
   req.logout();
   req.flash("success", "You logged out successfully!");
   res.redirect("/artists");
 });
 
 //USER PROFILES
-router.get("/users/:id", function(req, res) {
-  User.findById(req.params.id, function(err, foundUser) {
+router.get("/users/:id", (req, res)=> {
+  User.findById(req.params.id, (err, foundUser) =>{
     if (err) {
       req.flash("error", "Something went wrong.");
       return res.redirect("/");
@@ -81,12 +81,12 @@ router.get("/users/:id", function(req, res) {
 });
 
 function setupAdmin() {
-  User.findByUsername("admin", function(err, user) {
+  User.findByUsername("admin", (err, user) =>{
     if (user) {} else {
       User.register({
         username: "admin",
         isAdmin: true
-      }, "admin", function(err, user) {
+      }, "admin", (err, user)=>{
         if (err) {
           console.log(err);
         } else {

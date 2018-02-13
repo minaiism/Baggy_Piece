@@ -5,12 +5,12 @@ let middleware = require("../middleware");
 let youTubeApi = require("../third_party/youtube/youTubeApi");
 
 //INDEX ROUTE
-router.get("/", function (req, res) {
+router.get("/", (req, res) => {
     if (req.query.search) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         Artist.find({
             name: regex
-        }, function (err, allArtists) {
+        }, (err, allArtists) => {
             if (err) {
                 console.log(err);
             } else {
@@ -21,7 +21,7 @@ router.get("/", function (req, res) {
             }
         });
     } else {
-        Artist.find({}, function (err, allArtists) {
+        Artist.find({}, (err, allArtists) => {
             if (err) {
                 console.log(err);
             } else {
@@ -35,7 +35,7 @@ router.get("/", function (req, res) {
 });
 
 //CREATE - add new artist to DB
-router.post("/", middleware.isLoggedIn, function (req, res) {
+router.post("/", middleware.isLoggedIn, (req, res) => {
 
     let newArtist = {
         name: req.body.name,
@@ -53,7 +53,7 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
         }
     };
 
-    Artist.create(newArtist, function (err, newlyCreated) {
+    Artist.create(newArtist, (err, newlyCreated) => {
         if (err) {
             console.log(err);
         } else {
@@ -63,12 +63,12 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
 });
 
 //NEW ROUTE
-router.get("/new", middleware.isLoggedIn, function (req, res) {
+router.get("/new", middleware.isLoggedIn, (req, res) => {
     res.render("artists/new");
 });
 
 //SHOW ROUTE
-router.get("/:id", function (req, res) {
+router.get("/:id", (req, res) => {
     Artist.findById(req.params.id).populate("comments").exec(function (err, foundArtist) {
         if (err) {
             console.log(err);
@@ -80,7 +80,7 @@ router.get("/:id", function (req, res) {
             console.log(ytUsername);
 
             youTubeApi.getLinksByUsername(ytUsername, (videoItems) => {
-                videoItems.forEach((videoItem)=>{
+                videoItems.forEach((videoItem) => {
                     console.log(videoItem.title);
                 });
                 res.render("artists/show", {
@@ -96,8 +96,8 @@ router.get("/:id", function (req, res) {
 
 //EDIT ROUTE
 
-router.get("/:id/edit", middleware.checkArtistOwnership, function (req, res) {
-    Artist.findById(req.params.id, function (err, foundArtist) {
+router.get("/:id/edit", middleware.checkArtistOwnership, (req, res) => {
+    Artist.findById(req.params.id, (err, foundArtist) => {
         res.render("artists/edit", {
             artist: foundArtist
         });
@@ -105,8 +105,8 @@ router.get("/:id/edit", middleware.checkArtistOwnership, function (req, res) {
 });
 
 //UPDATE ROUTE
-router.put("/:id", middleware.checkArtistOwnership, function (req, res) {
-    Artist.findByIdAndUpdate(req.params.id, req.body.artist, function (err, updatedArtist) {
+router.put("/:id", middleware.checkArtistOwnership, (req, res) => {
+    Artist.findByIdAndUpdate(req.params.id, req.body.artist, (err, updatedArtist) => {
         if (err) {
             res.redirect("/artists");
         } else {
@@ -117,7 +117,7 @@ router.put("/:id", middleware.checkArtistOwnership, function (req, res) {
 
 //DELETE ROUTES
 
-router.delete("/:id", middleware.checkArtistOwnership, function (req, res) {
+router.delete("/:id", middleware.checkArtistOwnership, (req, res) => {
     Artist.findByIdAndRemove(req.params.id, function (err) {
         if (err) {
             res.redirect("/artists");

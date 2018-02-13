@@ -3,9 +3,9 @@ let Comment = require("../models/comment");
 
 let middlewareObj = {};
 
-middlewareObj.checkArtistOwnership = function(req, res, next) {
+middlewareObj.checkArtistOwnership = (req, res, next)=>{
   if (req.isAuthenticated()) {
-    Artist.findById(req.params.id, function(err, foundArtist) {
+    Artist.findById(req.params.id, (err, foundArtist) =>{
       if (err) {
         req.flash("error", "Artist not found");
         res.redirect("back");
@@ -24,9 +24,9 @@ middlewareObj.checkArtistOwnership = function(req, res, next) {
   }
 };
 
-middlewareObj.checkCommentOwnership = function(req, res, next) {
+middlewareObj.checkCommentOwnership = (req, res, next)=> {
   if (req.isAuthenticated()) {
-    Comment.findById(req.params.comment_id, function(err, foundComment) {
+    Comment.findById(req.params.comment_id, (err, foundComment)=> {
       if (err) {
         res.redirect("back");
       } else {
@@ -45,7 +45,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next) {
 };
 
 
-middlewareObj.isLoggedIn = function(req, res, next) {
+middlewareObj.isLoggedIn = (req, res, next) =>{
   if (req.isAuthenticated()) {
     return next();
   }
