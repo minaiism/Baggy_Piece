@@ -59,8 +59,7 @@ div.thumbnail {
   border-style: dotted;
   border-color: #5A206E;
   margin: 0 auto;
-  height: 80%;
-  width:80%;
+
 }
 
 .thumbnail {
@@ -184,6 +183,7 @@ textarea {
   border-color: black;
 }
 
+
 .avatar {
   border: groove;
   border-width: 6px;
@@ -247,17 +247,16 @@ textarea {
 
 #titlefont{
   text-align: center;
-  font-size: 12px;
-  font-family: Happy Monkey;
+  font-size: 14px;
+  font-family: "Sitka Display";
 
 }
 
 #videosid{
- font-size: 13px;
+  color: black;
+ font-size: 17px;
   text-align:center;
   font-weight: bold;
-}
-
-ul.social-icons{
-
+  font-weight: bold;
+  font-family: Happy Monkey;
 }
