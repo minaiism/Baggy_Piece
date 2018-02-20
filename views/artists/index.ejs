@@ -1,43 +1,46 @@
 <% include ../partials/header %>
+<% if(currentUser && currentUser.isAdmin){ %>
+<h1 style="font-size:30px; text-align:center; font-weight: bold; font-family:Happy Monkey; color:purple;"> YOU ARE AN
+    ADMIN! </h1>
+<% } %>
+<div class="container">
 
-  <% if(currentUser && currentUser.isAdmin){ %>
-    <h1 style="font-size:30px; text-align:center; font-weight: bold; font-family:Happy Monkey; color:purple;"> YOU ARE AN ADMIN! </h1>
-    <% } %>
-      <div class="container">
-
-        <header class="jumbotron alpha60">
-          <div class="container">
+    <header class="jumbotron alpha60">
+        <div class="container">
             <h2> Welcome to BaggyPiece <span class="glyphicon glyphicon-headphones"></span></h2>
             <h5>View The Most Impactful and Promising Artists of All Time!</h5>
             <p>
-              <form action="/artists" method="GET" class="form-inline">
+            <form action="/artists" method="GET" class="form-inline">
                 <div class="form-group">
-                  <input type="text" name="search" placeholder="Artist Search..." class="form-control" id="search-artist">
-                  <button class="btn btn-info" id="search-artist-button"><span class="glyphicon glyphicon-search"></span></button>
+                    <input type="text" name="search" placeholder="Artist Search..." class="form-control"
+                           id="search-artist">
+                    <button class="btn btn-info" id="search-artist-button"><span
+                                class="glyphicon glyphicon-search"></span></button>
                 </div>
-              </form>
+            </form>
             </p>
-          </div>
-        </header>
-
-
-        <div class="row text-center" style="display:flex; flex-wrap:wrap;">
-          <% artists.forEach(function(artist){%>
-            <div class="col-md-3 col-sm-6">
-              <div class="thumbnail">
-                <% if(loggedIn){ %>
-                  <img src="<%= artist.image %>">
-                  <% } else {%>
-                    <img src="<%= artist.image %>" style="-webkit-filter: grayscale(100%);">
-                    <% } %>
-                      <div class="caption">
-                        <h4 style="height:22px;"><%= artist.name %></h4>
-                        <p>
-                          <a href="/artists/<%= artist._id %>" class="btn btn-primary"><span class="glyphicon glyphicon-fire" style="height:20px;"></span> More Info</a>
-                        </p>
-                      </div>
-              </div>
-            </div>
-            <% }); %>
         </div>
-        <% include ../partials/footer %>
+    </header>
+
+
+    <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+        <% artists.forEach(function(artist){ %>
+        <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <% if(loggedIn){ %>
+                <img src="<%= artist.image %>">
+                <% } else { %>
+                <img src="<%= artist.image %>" style="-webkit-filter: grayscale(100%);">
+                <% } %>
+                <div class="caption">
+                    <h4 style="height:22px;"><%= artist.name %></h4>
+                    <p>
+                        <a href="/artists/<%= artist._id %>" class="btn btn-primary"><span
+                                    class="glyphicon glyphicon-fire" style="height:20px;"></span> More Info</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+<% include ../partials/footer %>

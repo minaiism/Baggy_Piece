@@ -3,6 +3,7 @@ const Google = require('googleapis');
 const Authorization = require('./authorization.js');
 
 let YouTubeApi = {};
+
 /**
  * Gets sorted list of links for given Youtube channel
  *
@@ -15,7 +16,7 @@ let YouTubeApi = {};
  * @param callback returns a sorted list of video links
  */
 class Video {
-    constructor(link, title){
+    constructor(link, title) {
         this.link = link;
         this.title = title;
     }
@@ -60,7 +61,7 @@ YouTubeApi.getLinksByUsername = function (username, callback) {
             }
         });
 
-        callback(links.splice(0,10));
+        callback(links.splice(0, 10));
     });
 };
 

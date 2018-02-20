@@ -1,28 +1,28 @@
 <% include ../partials/header %>
 
-  <div class="row">
+<div class="row">
     <div class="cold-md-4">
-      <h1 id="first-last"><%= user.firstName + " " + user.lastName %></h1>
-      <div class="thumbnail" id="indvimage">
-        <img src="<%=user.avatar %>" alt="user profile image" class="avatar">
-        <div class="caption" id="caption2">
-          <a href="mailto:<%=user.email %>" class="useremail">
-            <%= user.email %>
-          </a>
+        <h1 id="first-last"><%= user.firstName + " " + user.lastName %></h1>
+        <div class="thumbnail" id="indvimage">
+            <img src="<%= user.avatar %>" alt="user profile image" class="avatar">
+            <div class="caption" id="caption2">
+                <a href="mailto:<%= user.email %>" class="useremail">
+                    <%= user.email %>
+                </a>
+            </div>
+            <h3 class="bumblebee"><%= user.username %>&#8217;s Artists </h3>
+            <% artists.forEach(function(artist){ %>
+            <ul>
+                <li class="bumblebee">
+                    <a href="/artists/<%= artist.id %>" class="bumblebee">
+                        <%= artist.name %>
+                    </a>
+                </li>
+            </ul>
+            <% }); %>
         </div>
-        <h3 class="bumblebee"><%= user.username %>&#8217;s Artists </h3>
-        <% artists.forEach(function(artist){ %>
-          <ul>
-            <li class="bumblebee">
-              <a href="/artists/<%= artist.id %>" class="bumblebee">
-                <%= artist.name %>
-              </a>
-            </li>
-          </ul>
-          <% }); %>
-      </div>
     </div>
-  </div>
+</div>
 
 
-  <% include ../partials/footer %>
+<% include ../partials/footer %>

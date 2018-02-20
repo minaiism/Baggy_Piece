@@ -10,7 +10,7 @@ const TOKEN_PATH = TOKEN_DIR + 'youtube-nodejs-quickstart.json';
 
 let Authorization = {};
 
-Authorization.authorize = function(callback){
+Authorization.authorize = function (callback) {
 // Load client secrets from a local file.
     Fs.readFile('client_secret.json', function processClientSecrets(err, content) {
         if (err) {
@@ -31,7 +31,7 @@ Authorization.authorize = function(callback){
  * @param {Object} credentials The Authorization client credentials (Parsed token)
  * @param callback Callback that returns OAuth2 client object
  */
-Authorization.authorizeOauth = function(credentials, callback) {
+Authorization.authorizeOauth = function (credentials, callback) {
     let clientSecret = credentials.installed.client_secret;
     let clientId = credentials.installed.client_id;
     let redirectUrl = credentials.installed.redirect_uris[0];
@@ -58,7 +58,7 @@ Authorization.authorizeOauth = function(credentials, callback) {
  * @param {Google.auth.OAuth2} oauth2Client The OAuth2 client to get token for.
  * @param callback Callback that returns an updated OAuth2 client with correct credentials
  */
-Authorization.getNewToken = function(oauth2Client, callback) {
+Authorization.getNewToken = function (oauth2Client, callback) {
     let authUrl = oauth2Client.generateAuthUrl({
         access_type: 'offline',
         scope: SCOPES
@@ -89,7 +89,7 @@ Authorization.getNewToken = function(oauth2Client, callback) {
  *
  * @param {Object} token The token to store to disk.
  */
-Authorization.storeToken = function(token) {
+Authorization.storeToken = function (token) {
     try {
         Fs.mkdirSync(TOKEN_DIR);
     } catch (err) {

@@ -1,80 +1,80 @@
 body {
-  background-color: #031735;
-  font-family: 'Sigmar One', cursive;
-  font-size: 10px;
+    background-color: #031735;
+    font-family: 'Sigmar One', cursive;
+    font-size: 10px;
 }
 
 #landing-header {
-  z-index: 1;
-  position: relative;
-  text-align: center;
-  padding-top: 40vh;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding-top: 40vh;
 }
 
 #landing-header h1 {
-  font-size: 40px;
-  color: #390c5e;
-  text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+    font-size: 40px;
+    color: #390c5e;
+    text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
 }
 
 .btn-info, .btn-info:hover, .btn-info:active, .btn-info:visited {
-  background-color: #390c5e;
-  border: none;
+    background-color: #390c5e;
+    border: none;
 }
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
-  background-color: #390c5e;
-  border: none;
+    background-color: #390c5e;
+    border: none;
 }
 
 .slideshow {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .slideshow li {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  opacity: 0;
-  z-index: 0;
-  animation: imageAnimation 50s linear infinite;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 50s linear infinite;
 }
 
 .slideshow li:nth-child(1) {
-  background-image: url(http://www.daan-mag.com/wp-content/uploads/2016/04/The_Boxer_Rebellion_Ocean_By_Ocean_Album_CD_Review_London_UK_Indie_Rock_Header.jpg);
+    background-image: url(http://www.daan-mag.com/wp-content/uploads/2016/04/The_Boxer_Rebellion_Ocean_By_Ocean_Album_CD_Review_London_UK_Indie_Rock_Header.jpg);
 }
 
 .slideshow li:nth-child(2) {
-  background-image: url(https://images-na.ssl-images-amazon.com/images/I/816A3Dew23L._SL1500_.jpg);
-  animation-delay: 10s;
+    background-image: url(https://images-na.ssl-images-amazon.com/images/I/816A3Dew23L._SL1500_.jpg);
+    animation-delay: 10s;
 }
 
 .slideshow li:nth-child(3) {
-  background-image: url(http://creativeconservatory.com/wp-content/uploads/2015/02/SBTRKT_Wonde_Cover_400e0.jpg);
-  animation-delay: 20s;
+    background-image: url(http://creativeconservatory.com/wp-content/uploads/2015/02/SBTRKT_Wonde_Cover_400e0.jpg);
+    animation-delay: 20s;
 }
 
 .slideshow li:nth-child(4) {
-  background-image: url(http://digitalspyuk.cdnds.net/15/29/1024x512/landscape-music-everything-everythings-get-to-heaven.jpg);
-  animation-delay: 30s;
+    background-image: url(http://digitalspyuk.cdnds.net/15/29/1024x512/landscape-music-everything-everythings-get-to-heaven.jpg);
+    animation-delay: 30s;
 }
 
 .slideshow li:nth-child(5) {
-  background-image: url(https://68.media.tumblr.com/24d9f8776c65acc625ef3bf2ee19ea00/tumblr_orelfwaHdD1rvt708o2_1280.jpg);
-  animation-delay: 40s;
+    background-image: url(https://68.media.tumblr.com/24d9f8776c65acc625ef3bf2ee19ea00/tumblr_orelfwaHdD1rvt708o2_1280.jpg);
+    animation-delay: 40s;
 }
 
 /*taking the @keyframes selector and giving the animation the name of image */
@@ -82,31 +82,31 @@ body {
 /* and this matches up with the earlier value animation: imageAnimation 50s (..) above*/
 
 @keyframes imageAnimation {
-  /*so animation goes from 0% al the way to 100% but we are focusing on 0 - 30 % */
-  0% {
-    /* we start our animation at 0 for the opacity*/
-    opacity: 0;
-    /*it gives us more smooth transition from 0 to 1*/
-    animation-timing-function: ease-in;
-  }
-  10% {
-    /*all the way up to 10% we let it fade in into the opacity of 1 */
-    opacity: 1;
-    animation-timing-function: ease-out;
-  }
-  /* we leave the opacity of 1 all the way to 20% */
-  20% {
-    opacity: 1
-  }
-  30% {
-    /*and then we are going back to 0 at 30%*/
-    opacity: 0
-  }
+    /*so animation goes from 0% al the way to 100% but we are focusing on 0 - 30 % */
+    0% {
+        /* we start our animation at 0 for the opacity*/
+        opacity: 0;
+        /*it gives us more smooth transition from 0 to 1*/
+        animation-timing-function: ease-in;
+    }
+    10% {
+        /*all the way up to 10% we let it fade in into the opacity of 1 */
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    /* we leave the opacity of 1 all the way to 20% */
+    20% {
+        opacity: 1
+    }
+    30% {
+        /*and then we are going back to 0 at 30%*/
+        opacity: 0
+    }
 }
 
 /* Older browser support - .no-cssanimations class added by modernizr */
 
 .no-cssanimations .slideshow li {
-  /*browser that doesnt support Css animations will just have one slide visible and that would be the background for that page*/
-  opacity: 1;
+    /*browser that doesnt support Css animations will just have one slide visible and that would be the background for that page*/
+    opacity: 1;
 }

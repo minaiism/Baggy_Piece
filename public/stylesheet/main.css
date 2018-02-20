@@ -1,262 +1,261 @@
 body {
-  background-image: url("https://wallpaperscraft.com/image/black_background_line_violet_color_graphics_487_1920x1200.jpg");
-  color: black;
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: 'Syncopate', cursive;
-  font-size: 15px;
+    background-image: url("https://wallpaperscraft.com/image/black_background_line_violet_color_graphics_487_1920x1200.jpg");
+    color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Syncopate', cursive;
+    font-size: 15px;
 }
 
 h1 {
-  color: white;
+    color: white;
 }
 
 h4 {
-  color: white;
-  font-size: 12px;
+    color: white;
+    font-size: 12px;
 }
 
 p {
-  font-family: 'Happy Monkey';
+    font-family: 'Happy Monkey';
 }
 
 p.text-muted {
-  font-family: 'Syncopate', cursive;
-  font-size: 15px;
+    font-family: 'Syncopate', cursive;
+    font-size: 15px;
 }
 
 a {
-  color: white !important;
+    color: white !important;
 }
 
 a.btn.btn-info.btn-lg {
-  font-family: 'Syncopate', cursive;
-  font-size: 14px;
+    font-family: 'Syncopate', cursive;
+    font-size: 14px;
 }
 
 hr {
-  border-color: #5A206E;
-  border-style: dashed;
-  border-width: 2px;
+    border-color: #5A206E;
+    border-style: dashed;
+    border-width: 2px;
 }
 
 .jumbotron {
-  background-image: url(https://i.pinimg.com/736x/cf/a1/0f/cfa10f74b0337820a353d20940015753--heart-beat-my-heart.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background: rgba(255, 255, 255, 0);
-  text-align: center;
-  color: white;
+    background-image: url(https://i.pinimg.com/736x/cf/a1/0f/cfa10f74b0337820a353d20940015753--heart-beat-my-heart.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: rgba(255, 255, 255, 0);
+    text-align: center;
+    color: white;
 }
 
 div.caption-full {
-  text-align: justify;
+    text-align: justify;
 }
 
 div.thumbnail {
-  background-color: black;
-  border-width: 2px;
-  border-style: dotted;
-  border-color: #5A206E;
-  margin: 0 auto;
+    background-color: black;
+    border-width: 2px;
+    border-style: dotted;
+    border-color: #5A206E;
+    margin: 0 auto;
 
 }
 
 .thumbnail {
-  background-color: black;
-  opacity: 0.9;
-  height: 95%;
-  width: 90%;
+    background-color: black;
+    opacity: 0.9;
+    height: 95%;
+    width: 90%;
 }
 
 .thumbnail img {
-  height: 22rem;
-  width: 25rem;
-  /* -webkit-filter: grayscale(100%); */
-  padding: 0;
-  margin: 0 auto;
+    height: 22rem;
+    width: 25rem;
+    /* -webkit-filter: grayscale(100%); */
+    padding: 0;
+    margin: 0 auto;
 }
 
 img.img-responsive {
-  height: 60%;
-  width: 60%;
-  filter: none;
+    height: 60%;
+    width: 60%;
+    filter: none;
 }
 
 div.caption {
-  height: 100px;
+    height: 100px;
 }
 
 div.row {
-  color: #656B6E;
+    color: #656B6E;
 }
 
 div.container {
-  color: white;
+    color: white;
 }
+
 /*div.col-md-3 {*/
 
-  /*width: 320px;*/
+/*width: 320px;*/
 /*}*/
 
 /*div.col-md-9 {*/
 
-  /*width: 800px;*/
+/*width: 800px;*/
 /*}*/
 
-
 div.col-md-12 {
-  font-family: 'Happy Monkey', cursive;
-  font-size: 13px;
+    font-family: 'Happy Monkey', cursive;
+    font-size: 13px;
 }
 
 span {
-  font-size: 14px;
-  font-weight: bold;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 span.glyphicon.glyphicon-headphones::before {
-  font-size: 40px;
+    font-size: 40px;
 }
 
 span.pull-right {
-  font-size: 12px;
-  text-align: justify;
+    font-size: 12px;
+    text-align: justify;
 }
 
 span.glyphicon-search:before {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 textarea {
-  width: 100%;
-  height: 180px;
-  padding: 6px 12px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  resize: none;
-  color: #555;
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    width: 100%;
+    height: 180px;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    resize: none;
+    color: #555;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
 .navbar, .navbar-default {
-  background-color: black;
-  margin: 0;
-  padding: 0;
-  border: 0;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 .nav.navbar.navbar-default {
-  color: white;
+    color: white;
 }
 
 .delete-form {
-  display: inline;
+    display: inline;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  background-color: #390c5e;
-  border: none;
+    background-color: #390c5e;
+    border: none;
 }
 
 .btn-info, .btn-info:hover, .btn-info:active, .btn-info:visited {
-  background-color: #390c5e;
-  border: none;
+    background-color: #390c5e;
+    border: none;
 }
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
-  background-color: #390c5e;
-  border: none;
+    background-color: #390c5e;
+    border: none;
 }
 
 .list-group-item.active {
-  background-color: #cc181e;
-  border-style: solid;
-  border-color: black;
-  border-width: 1px;
+    background-color: #cc181e;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
 }
 
 .list-group-item.active:hover {
-  background-color: #666666;
-  border-color: black;
+    background-color: #666666;
+    border-color: black;
 }
 
-
 .avatar {
-  border: groove;
-  border-width: 6px;
-  border-color: #a060a3;
+    border: groove;
+    border-width: 6px;
+    border-color: #a060a3;
 }
 
 #caption2 {
-  text-align: center;
-  font-size: 15px;
-  font-family: Happy Monkey;
+    text-align: center;
+    font-size: 15px;
+    font-family: Happy Monkey;
 }
 
 .bumblebee {
-  text-align: center;
-  font-size: 17px;
-  font-family: Happy Monkey;
-  color: pink;
+    text-align: center;
+    font-size: 17px;
+    font-family: Happy Monkey;
+    color: pink;
 }
 
 .username-name {
-  color: #c4ede9;
+    color: #c4ede9;
 }
 
 .username-name:hover {
-  color: #bf40d6;
+    color: #bf40d6;
 }
 
 .moment-1 {
-  font-size: 13px;
-  color: white;
-  color: #a060a3;
+    font-size: 13px;
+    color: white;
+    color: #a060a3;
 }
 
 #search-artist, #search-artist-button {
-  font-family: Happy Monkey;
+    font-family: Happy Monkey;
 }
 
 .artist-name-font {
-  color: #a060a3;
-  font-family: Bowlby One SC;
-  font-size: 20px;
+    color: #a060a3;
+    font-family: Bowlby One SC;
+    font-size: 20px;
 }
 
 #indvimage {
-  /* background-image: url("https://i.pinimg.com/736x/d7/2f/4c/d72f4c82e0921015f82d7484f99166c4.jpg"); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: black;
-  height: 780px;
-  width: 400px;
-  opacity: 0.8;
-  border: 2px;
-  border-style: groove;
-  border-color: #a060a3;
+    /* background-image: url("https://i.pinimg.com/736x/d7/2f/4c/d72f4c82e0921015f82d7484f99166c4.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    height: 780px;
+    width: 400px;
+    opacity: 0.8;
+    border: 2px;
+    border-style: groove;
+    border-color: #a060a3;
 }
 
 #first-last {
-  text-align: center;
-  color: #a322ad;
+    text-align: center;
+    color: #a322ad;
 }
 
-#titlefont{
-  text-align: center;
-  font-size: 14px;
-  font-family: "Sitka Display";
+#titlefont {
+    text-align: center;
+    font-size: 14px;
+    font-family: "Sitka Display";
 
 }
 
-#videosid{
-  color: black;
- font-size: 17px;
-  text-align:center;
-  font-weight: bold;
-  font-weight: bold;
-  font-family: Happy Monkey;
+#videosid {
+    color: black;
+    font-size: 17px;
+    text-align: center;
+    font-weight: bold;
+    font-weight: bold;
+    font-family: Happy Monkey;
 }
