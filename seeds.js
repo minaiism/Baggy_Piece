@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const Artist = require("./models/artist");
 const Comment = require("./models/comment");
 
@@ -20,23 +19,22 @@ const data = [{
 
 ];
 
-
 function seedDB() {
-    //REMOVE ALL CAMPGROUNDS
+    //REMOVE ALL ARTISTS
     Artist.remove({}, function (err) {
         if (err) {
             console.log(err);
         }
         console.log("removed artists");
     });
-    // ADD A FEW CAMPGROUNDS
+    // ADD A FEW ARTISTS
     data.forEach(function (seed) {
         Artist.create(seed, function (err, artist) {
             if (err) {
                 console.log(err);
             } else {
                 console.log("added an artist");
-                //create a comment on each campground
+                //create a comment on each artist
                 Comment.create({
                     text: "Nice",
                     author: "Marge"

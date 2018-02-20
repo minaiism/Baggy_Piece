@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 <% if(currentUser && currentUser.isAdmin){ %>
-<h1 style="font-size:30px; text-align:center; font-weight: bold; font-family:Happy Monkey; color:purple;"> YOU ARE AN
-    ADMIN! </h1>
+<h1 style="font-size:30px; text-align:center; font-weight: bold; font-family:Happy Monkey serif; color:purple;">
+    YOU ARE AN ADMIN! </h1>
 <% } %>
 <div class="container">
 
@@ -14,8 +14,8 @@
                 <div class="form-group">
                     <input type="text" name="search" placeholder="Artist Search..." class="form-control"
                            id="search-artist">
-                    <button class="btn btn-info" id="search-artist-button"><span
-                                class="glyphicon glyphicon-search"></span></button>
+                    <button class="btn btn-info" id="search-artist-button">
+                        <span class="glyphicon glyphicon-search"></span></button>
                 </div>
             </form>
             </p>

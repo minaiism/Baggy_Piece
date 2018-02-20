@@ -26,9 +26,7 @@ router.post("/register", (req, res) => {
         email: req.body.email,
         avatar: req.body.avatar
     });
-    // if (req.body.adminCode === "secretcode") {
-    //   newUser.isAdmin = true;
-    // }
+
     User.register(newUser, req.body.password, (err, user) => {
         if (err) {
             console.log(err);
@@ -93,7 +91,6 @@ function setupAdmin() {
                     console.log(err);
                 } else {
                     console.log("added admin");
-                    //create a comment on each campground
                 }
             });
         }

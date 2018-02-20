@@ -5,32 +5,32 @@
         <h1 style="text-align: center;">Edit <%= artist.name %></h1>
         <div style="width:30%; margin: 25px auto;">
             <form action="/artists/<%= artist._id %>?_method=PUT" method="POST">
-                <div class="form-group" style="font-family: Georgia; font-size:20px;">
+                <div class="form-group" style="font-family: Georgia serif; font-size:20px;">
                     <input class="form-control" type="text" name="artist[name]" value="<%= artist.name %>">
                 </div>
-                <div class="form-group" style="font-family: Georgia; font-size:20px;">
+                <div class="form-group" style="font-family: Georgia serif; font-size:20px;">
                     <input class="form-control" type="text" name="artist[image]" value="<%= artist.image %>">
                 </div>
-                <div class="form-group" style="font-family: Georgia; font-size:20px;">
+                <div class="form-group" style="font-family: Georgia serif; font-size:20px;">
                     <textarea class="bubble" class="form-control" type="text" name="artist[description]"
                               value="<%= artist.description %>"></textarea>
                 </div>
-                <div class="form-group" style="font-family: Georgia; font-size:20px;">
+                <div class="form-group" style="font-family: Georgia serif; font-size:20px;">
                     <input class="form-control" type="text" name="artist[youtube]" value="<%= artist.youtube %>">
                 </div>
-                <div class="form-group" style="font-family: Georgia; font-size:20px;">
+                <div class="form-group" style="font-family: Georgia serif; font-size:20px;">
                     <input class="form-control" type="text" name="artist[spotify]" value="<%= artist.spotify %>">
                 </div>
-                <div class="form-group" style="font-family: Georgia; font-size:20px;">
+                <div class="form-group" style="font-family: Georgia serif; font-size:20px;">
                     <input class="form-control" type="text" name="artist[facebook]" value="<%= artist.facebook %>">
                 </div>
-                <div class="form-group" style="font-family: Georgia; font-size:20px;">
+                <div class="form-group" style="font-family: Georgia serif; font-size:20px;">
                     <input class="form-control" type="text" name="artist[twitter]" value="<%= artist.twitter %>">
                 </div>
-                <div class="form-group" style="font-family: Georgia; font-size:20px;">
+                <div class="form-group" style="font-family: Georgia serif; font-size:20px;">
                     <input class="form-control" type="text" name="artist[instagram]" value="<%= artist.instagram %>">
                 </div>
-                <div class="form-group" style="font-family: Georgia; font-size:20px;">
+                <div class="form-group" style="font-family: Georgia serif; font-size:20px;">
                     <input class="form-control" type="text" name="artist[pinterest]" value="<%= artist.pinterest %>">
                 </div>
                 <div class="form-group">

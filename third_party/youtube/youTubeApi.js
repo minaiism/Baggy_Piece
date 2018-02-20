@@ -156,7 +156,7 @@ function getPlaylistItems(nextPageToken, auth, playlistId, callback, playlistIte
 /**
  * Retrieve upload playlist id for given username
  *
- * @param {Google.auth.OAuth2} auth An authorized OAuth2 client.
+ * @param {string | undefined} auth An authorized OAuth2 client.
  * @param username Youtube channel username
  * @param callback YoutubeApi callback
  */

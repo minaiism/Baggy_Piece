@@ -17,7 +17,7 @@ h4 {
 }
 
 p {
-    font-family: 'Happy Monkey';
+    font-family: 'Happy Monkey', serif;
 }
 
 p.text-muted {
@@ -72,7 +72,6 @@ div.thumbnail {
 .thumbnail img {
     height: 22rem;
     width: 25rem;
-    /* -webkit-filter: grayscale(100%); */
     padding: 0;
     margin: 0 auto;
 }
@@ -94,16 +93,6 @@ div.row {
 div.container {
     color: white;
 }
-
-/*div.col-md-3 {*/
-
-/*width: 320px;*/
-/*}*/
-
-/*div.col-md-9 {*/
-
-/*width: 800px;*/
-/*}*/
 
 div.col-md-12 {
     font-family: 'Happy Monkey', cursive;
@@ -148,10 +137,6 @@ textarea {
     border: 0;
 }
 
-.nav.navbar.navbar-default {
-    color: white;
-}
-
 .delete-form {
     display: inline;
 }
@@ -192,13 +177,13 @@ textarea {
 #caption2 {
     text-align: center;
     font-size: 15px;
-    font-family: Happy Monkey;
+    font-family: Happy Monkey serif;
 }
 
 .bumblebee {
     text-align: center;
     font-size: 17px;
-    font-family: Happy Monkey;
+    font-family: Happy Monkey serif;
     color: pink;
 }
 
@@ -212,22 +197,14 @@ textarea {
 
 .moment-1 {
     font-size: 13px;
-    color: white;
     color: #a060a3;
 }
 
 #search-artist, #search-artist-button {
-    font-family: Happy Monkey;
-}
-
-.artist-name-font {
-    color: #a060a3;
-    font-family: Bowlby One SC;
-    font-size: 20px;
+    font-family: Happy Monkey serif;
 }
 
 #indvimage {
-    /* background-image: url("https://i.pinimg.com/736x/d7/2f/4c/d72f4c82e0921015f82d7484f99166c4.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-color: black;
@@ -247,7 +224,7 @@ textarea {
 #titlefont {
     text-align: center;
     font-size: 14px;
-    font-family: "Sitka Display";
+    font-family: "Sitka Display", serif;
 
 }
 
@@ -256,6 +233,5 @@ textarea {
     font-size: 17px;
     text-align: center;
     font-weight: bold;
-    font-weight: bold;
-    font-family: Happy Monkey;
+    font-family: Happy Monkey, serif;
 }
