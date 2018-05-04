@@ -31,5 +31,11 @@ BaggyPiece (Baggy is named for the loose-fitting clothes - in particular, the be
 
 ## Screenshots:
 
+### Landing Page
+
+![baggy1](https://user-images.githubusercontent.com/21204863/39633900-9b27825e-4fb9-11e8-9741-9c58610b7343.jpg)
+![baggy2](https://user-images.githubusercontent.com/21204863/39633901-9b43db16-4fb9-11e8-9000-3d11092d09fb.jpg)
+![baggy3](https://user-images.githubusercontent.com/21204863/39633902-9b60ce2e-4fb9-11e8-8916-e3199672970f.jpg)
+
 
 
