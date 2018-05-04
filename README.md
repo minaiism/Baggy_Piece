@@ -38,7 +38,7 @@ BaggyPiece (Baggy is named for the loose-fitting clothes - in particular, the be
 ![baggy2](https://user-images.githubusercontent.com/21204863/39633901-9b43db16-4fb9-11e8-9000-3d11092d09fb.jpg)
 ![baggy3](https://user-images.githubusercontent.com/21204863/39633902-9b60ce2e-4fb9-11e8-8916-e3199672970f.jpg)
 
-# Layout (no black and white layout after logging in)
+# Layout (no black and white after logging in)
 
 ![baggy4](https://user-images.githubusercontent.com/21204863/39643488-361e7bee-4fd5-11e8-8af2-89d7456882b7.jpg)
 ![admin1](https://user-images.githubusercontent.com/21204863/39643487-3603e310-4fd5-11e8-901a-3d9cd9216c15.jpg)
